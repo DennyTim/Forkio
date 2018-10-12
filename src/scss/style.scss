@@ -1,0 +1,13 @@
+
+@mixin table-base {				//mixin for #data
+	div {
+		text-align: center;
+	}
+	span {
+		padding: 2px;
+	}
+}
+
+#data {
+	@include table-base; 					// set for #data styles in @mixin table-base
+}
