@@ -1,1 +1,113 @@
-//	font-family: 'Myriad Pro', sans-serif;
+/*----------------------------------- D R O P S -----------------------------------------*/
+
+/*
+	!!! font-family: 'Myriad Pro', sans-serif;
+*/
+
+/*---------------- R E P E T I T I V E ` S    S E L E C T O R S -------------------------*/
+
+
+
+/*----------------------------- @M I X I N S  -------------------------------------------*/
+
+@mixin simpleflex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-decoration: none;
+}
+
+@mixin stylemenu ($size) {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	&-item {
+		padding-right: $size;
+		display: flex;
+		align-items: center;
+		&-link {
+			text-decoration: none;
+		}
+	}
+}
+
+@mixin shellbtn {
+	background-color: $violet;
+	border: none;
+	border-radius: 5px;
+	color: $white;
+	cursor: pointer;
+	outline: none;
+	@extend .mont;
+}
+
+/*----------------------------- @V A R I A B L E S  -------------------------------------*/
+
+$white: #ffffff;
+$violet: #8d81ac;
+
+/*-----------------------------   @E X T E N D S  ---------------------------------------*/
+
+.container {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+.lato {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+}
+
+.mont {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+
+/*--------------------------- F O R K I O    H E A D E R -------------------------------*/
+
+.navbar {
+	background: rgb(34, 33, 37);
+
+	.navbar-container {
+		@extend .container;
+		font-size: 24px;
+
+		.navbar-menu {
+			@include simpleflex;
+
+			.navbar-menu-logo {
+				@include simpleflex;
+
+				.navbar-menu-img {
+					padding: 30px 17px 29px 0px;
+					height: 41px;
+				}
+
+				.navbar-menu-header {
+					@extend .lato;
+					font-size: 1em;
+					color: $violet;
+					text-transform: uppercase;
+				}
+			}
+
+			.navbar-list {
+				@include stylemenu(48px);
+
+				&-item {
+					&-link {
+						color: $violet;
+						@extend .mont;
+						font-size: 0.6em;
+					}
+				}
+
+				.navbar-shell-btn {
+					@include shellbtn;
+					padding: 12px 35px 11px 35px;
+					font-size: 0.6em;
+				}
+			}
+		}
+	}
+}
