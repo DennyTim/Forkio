@@ -5,7 +5,7 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var clean = require('gulp-clean');
 var sourcemaps = require('gulp-sourcemaps');
-var minify = require('gulp-uglify');
+//var minify = require('gulp-uglify');
 
 gulp.task('clean-build', function(){
 	return gulp.src('./build', {read: false})
