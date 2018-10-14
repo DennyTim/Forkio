@@ -1,1 +1,61 @@
 //	font-family: 'Myriad Pro', sans-serif;
+
+/*--------------------------- O U R   P A R T N E R S   S E C T I O N -------------------------------*/
+$bcg-image: url("../img/Layer_OurPartners.png");
+$font-family-header: "Montserrat";
+$font-family-info: "Source Sans Pro";
+$font-size: 48px;
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.our-partners {
+  padding-top: 28px;
+  background: $bcg-image;
+  text-align: center;
+  font-weight: 700;
+}
+
+.our-partners-header {
+  text-transform: capitalize;
+  font-family: $font-family-header, sans-serif;
+  font-size: $font-size;
+  /*color:  #ffffff;*/
+  line-height: 15px;
+}
+
+.our-partners-upper, .our-partners-bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.our-partners-upper {
+  padding-top: 92px;
+  padding-bottom: 106px;
+}
+
+.our-partners-bottom {
+  padding-bottom: 98px;
+}
+
+.our-partners-bottom-line {
+  border: none;
+  width: 780px;
+  height: 2px;
+  background-color: rgba(199, 199, 199, 0.2);
+}
+
+.our-partner {
+  width: 426px;
+  font-family: $font-family-info, sans-serif;
+  /*color:  #ffffff;*/
+  font-size: $font-size/3;
+  font-style: italic;
+  line-height: 24px;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
