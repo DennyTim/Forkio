@@ -4,7 +4,7 @@
 $bcg-image: url("../img/Layer_OurPartners.png");
 $font-family-header: "Montserrat";
 $font-family-info: "Source Sans Pro";
-$font-size: 48px;
+$font-size: 3em;
 
 .container {
   width: 1200px;
@@ -13,18 +13,24 @@ $font-size: 48px;
 }
 
 .our-partners {
-  padding-top: 28px;
+  padding-top: 6em;
   background: $bcg-image;
   text-align: center;
   font-weight: 700;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-.our-partners-header {
+.header-section {
+  text-align: center;
   text-transform: capitalize;
   font-family: $font-family-header, sans-serif;
+  font-weight: 700;
   font-size: $font-size;
-  /*color:  #ffffff;*/
-  line-height: 15px;
+  color: #ffffff;
+  line-height: 0.3;
 }
 
 .our-partners-upper, .our-partners-bottom {
@@ -34,28 +40,170 @@ $font-size: 48px;
 }
 
 .our-partners-upper {
-  padding-top: 92px;
-  padding-bottom: 106px;
+  padding-top: 5.75em;
+  padding-bottom: 6.625em;
 }
 
 .our-partners-bottom {
-  padding-bottom: 98px;
+  padding-bottom: 6.125em;
+}
+
+.blur {
+  filter: blur(3px);
+  background-color: rgba(77, 57, 77, 0.75);
 }
 
 .our-partners-bottom-line {
+  padding-bottom: 0.1em;
+  background-color: rgba(77, 57, 77, 0.75);
+}
+
+.hr-line {
   border: none;
-  width: 780px;
-  height: 2px;
+  width: 48.75em;
+  height: 0.125em;
   background-color: rgba(199, 199, 199, 0.2);
 }
 
 .our-partner {
-  width: 426px;
   font-family: $font-family-info, sans-serif;
-  /*color:  #ffffff;*/
+  color: #ffffff;
   font-size: $font-size/3;
   font-style: italic;
-  line-height: 24px;
+  line-height: 1.5;
+}
+
+.our-partner:nth-child(2),
+.our-partner:nth-child(5) {
+  padding-left: 7.5em;
+  padding-right: 7.5em;
+}
+
+.our-partner-logo {
+  padding-bottom: 2.2em;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/*--------------------------- S U B S C R I P T I O N   S E C T I O N -------------------------------*/
+.subscription-section {
+  background: $bcg-image;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+}
+
+.header-subscribe {
+  padding-top: 79px;
+}
+
+.bcg-blurriness {
+  background-color: rgba(77, 57, 77, 0.85);
+}
+
+.subscription-plans {
+  padding-top: 122px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.subscription-plan {
+  background-color:  rgba(255, 255, 255, 0.11);
+  width: 257px;
+  height: 457px;
+}
+
+.subscription-plan-header {
+  height: 97px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.06);
+  text-transform: uppercase;
+  font-family: $font-family-header, sans-serif;
+  color: #ffffff;
+  font-size: 1.5em;
+  line-height: 0.625;
+}
+
+.subscription-plan-conditions {
+  display: grid;
+  align-items: center;
+  height: 360px;
+}
+
+.plan-cost {
+  font-family: $font-family-header, sans-serif;
+  color:  #ffffff;
+  font-size: 3.76em;
+  line-height: 0.25;
+  font-weight: 700;
+}
+
+.dollar-icon {
+  font-weight: 400;
+}
+
+.plan-period {
+  text-transform: uppercase;
+  font-family: $font-family-header, sans-serif;
+  color:  rgba(162, 145, 165, 0.8);
+  font-size: 0.87em;
+  line-height: 1.1;
+}
+
+.plan-hr-line {
+  border: none;
+  background-color: #8d81ac;
+  width: 60px;
+  height: 5px;
+}
+
+.plan-benefits {
+  text-transform: capitalize;
+  font-family: $font-family-header, sans-serif;
+  color:  #ffffff;
+  font-size: 1em;
+  line-height: 0.33;
+}
+
+.plan-btn-purchase {
+  padding: 20px 50px;
+  margin-right: 25px;
+  margin-left: 25px;
+  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.plan-btn-purchase a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: $font-family-header, sans-serif;
+  color:  #ffffff;
+  font-size: 0.94em;
+  line-height: 1;
+}
+
+.subscription-section-info {
+  padding: 133px 77px 77px 77px;
+  font-family: $font-family-info, sans-serif;
+  color: rgba(162, 145, 165, 0.8);
+  font-size: 0.875em;
+  line-height: 1.5;
+}
+
+.active {
+  background-color:  rgba(0, 0, 0, 0.13);
+  width: 299px;
+  height: 560px;
+}
+
+.active-header {
+  background-color:  rgba(0, 0, 0, 0.11);
+  height: 111px;
 }
 
 /*---------------------------------------------------------------------------------------------------*/

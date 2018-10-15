@@ -15,12 +15,6 @@ gulp.task('clean-build', function(){
 
 gulp.task('img', ['clean-build'], function(){
     return gulp.src('./src/img/*.png')
-        .pipe(imagemin({
-                interlaced: true,
-                progressive: true,
-                svgoPlugins: [{removeViewBox:false}],
-            })
-        )
         .pipe(gulp.dest('./build/img'))
 });
 
