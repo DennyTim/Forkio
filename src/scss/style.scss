@@ -136,6 +136,7 @@ $font-size: 3em;
 }
 
 .plan-cost {
+  padding-top: 32px;
   font-family: $font-family-header, sans-serif;
   color:  #ffffff;
   font-size: 3.76em;
@@ -148,6 +149,7 @@ $font-size: 3em;
 }
 
 .plan-period {
+  margin-top: 24px;
   text-transform: uppercase;
   font-family: $font-family-header, sans-serif;
   color:  rgba(162, 145, 165, 0.8);
@@ -172,8 +174,7 @@ $font-size: 3em;
 
 .plan-btn-purchase {
   padding: 20px 50px;
-  margin-right: 25px;
-  margin-left: 25px;
+  margin: 38px 25px;
   border-radius: 40px;
   background-color: rgba(255, 255, 255, 0.15);
 }
@@ -204,6 +205,14 @@ $font-size: 3em;
 .active-header {
   background-color:  rgba(0, 0, 0, 0.11);
   height: 111px;
+}
+
+.active-plan-btn {
+  margin-top: 42px;
+}
+
+.active-conditions {
+  height: 449px;
 }
 
 /*---------------------------------------------------------------------------------------------------*/
