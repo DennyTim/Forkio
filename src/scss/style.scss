@@ -1,29 +1,16 @@
-//	font-family: 'Myriad Pro', sans-serif;
-
-/*--------------------------- O U R   P A R T N E R S   S E C T I O N -------------------------------*/
 $bcg-image: url("../img/Layer_OurPartners.png");
 $font-family-header: "Montserrat";
 $font-family-info: "Source Sans Pro";
 $font-size: 3em;
 
-.container {
-  width: 1200px;
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-.our-partners {
-  padding-top: 6em;
-  background: $bcg-image;
-  text-align: center;
-  font-weight: 700;
+@mixin background-settings {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
 
-.header-section {
+@mixin header-section-name {
   text-align: center;
   text-transform: capitalize;
   font-family: $font-family-header, sans-serif;
@@ -33,24 +20,88 @@ $font-size: 3em;
   line-height: 0.3;
 }
 
-.our-partners-upper, .our-partners-bottom {
+@mixin button-text {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: $font-family-header, sans-serif;
+  color: #ffffff;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-space-around {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin footer-text-logo {
+  font-family: $font-family-header, sans-serif;
+  font-size: 1.5em;
+  line-height: 0.667;
+}
+
+@mixin footer-text-grey {
+  font-family: $font-family-header, sans-serif;
+  color: #848e97;
+}
+
+@mixin footer-text-black {
+  font-family: $font-family-header, sans-serif;
+  color: #323232;
+  font-size: 1em;
+  line-height: 1.75;
+}
+
+@mixin footer-text-black-large {
+  font-family: $font-family-header, sans-serif;
+  color: #323232;
+  font-size: 1.875em;
+  font-weight: 700;
+  line-height: 0.933;
+}
+
+/*--------------------------- O U R   P A R T N E R S   S E C T I O N -------------------------------*/
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.our-partners {
+  background: $bcg-image;
+  @include background-settings;
+  padding-top: 6em;
+  text-align: center;
+  font-weight: 700;
+}
+
+.our-partners-header {
+  @include header-section-name;
+}
+
+.our-partners-upper, .our-partners-bottom {
+  @include flex-space-between;
+}
+
 .our-partners-upper {
   padding-top: 5.75em;
-  padding-bottom: 6.625em;
+  padding-bottom: 6.63em;
 }
 
 .our-partners-bottom {
-  padding-bottom: 6.125em;
-}
-
-.blur {
-  filter: blur(3px);
-  background-color: rgba(77, 57, 77, 0.75);
+  padding-bottom: 6.13em;
 }
 
 .our-partners-bottom-line {
@@ -88,15 +139,13 @@ $font-size: 3em;
 /*--------------------------- S U B S C R I P T I O N   S E C T I O N -------------------------------*/
 .subscription-section {
   background: $bcg-image;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  @include background-settings;
   text-align: center;
 }
 
-.header-subscribe {
+.subscription-header {
   padding-top: 79px;
+  @include header-section-name;
 }
 
 .bcg-blurriness {
@@ -105,22 +154,18 @@ $font-size: 3em;
 
 .subscription-plans {
   padding-top: 122px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  @include flex-space-around;
 }
 
 .subscription-plan {
-  background-color:  rgba(255, 255, 255, 0.11);
+  background-color: rgba(255, 255, 255, 0.11);
   width: 257px;
   height: 457px;
 }
 
 .subscription-plan-header {
+  @include flex-center;
   height: 97px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgba(255, 255, 255, 0.06);
   text-transform: uppercase;
   font-family: $font-family-header, sans-serif;
@@ -138,7 +183,7 @@ $font-size: 3em;
 .plan-cost {
   padding-top: 32px;
   font-family: $font-family-header, sans-serif;
-  color:  #ffffff;
+  color: #ffffff;
   font-size: 3.76em;
   line-height: 0.25;
   font-weight: 700;
@@ -152,7 +197,7 @@ $font-size: 3em;
   margin-top: 24px;
   text-transform: uppercase;
   font-family: $font-family-header, sans-serif;
-  color:  rgba(162, 145, 165, 0.8);
+  color: rgba(162, 145, 165, 0.8);
   font-size: 0.87em;
   line-height: 1.1;
 }
@@ -167,23 +212,20 @@ $font-size: 3em;
 .plan-benefits {
   text-transform: capitalize;
   font-family: $font-family-header, sans-serif;
-  color:  #ffffff;
+  color: #ffffff;
   font-size: 1em;
   line-height: 0.33;
 }
 
 .plan-btn-purchase {
-  padding: 20px 50px;
   margin: 38px 25px;
+  padding: 20px 50px;
   border-radius: 40px;
   background-color: rgba(255, 255, 255, 0.15);
 }
 
 .plan-btn-purchase a {
-  text-transform: uppercase;
-  text-decoration: none;
-  font-family: $font-family-header, sans-serif;
-  color:  #ffffff;
+  @include button-text;
   font-size: 0.94em;
   line-height: 1;
 }
@@ -191,20 +233,20 @@ $font-size: 3em;
 .subscription-section-info {
   padding: 133px 77px 77px 77px;
   font-family: $font-family-info, sans-serif;
-  color: rgba(162, 145, 165, 0.8);
   font-size: 0.875em;
   line-height: 1.5;
+  color: rgba(162, 145, 165, 0.8);
 }
 
 .active {
-  background-color:  rgba(0, 0, 0, 0.13);
   width: 299px;
   height: 560px;
+  background-color: rgba(0, 0, 0, 0.13);
 }
 
 .active-header {
-  background-color:  rgba(0, 0, 0, 0.11);
   height: 111px;
+  background-color: rgba(0, 0, 0, 0.11);
 }
 
 .active-plan-btn {
@@ -213,6 +255,114 @@ $font-size: 3em;
 
 .active-conditions {
   height: 449px;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/*--------------------------- C A L L B A C K   S E C T I O N -------------------------------*/
+.callback-section {
+  background-color: #f4f4f4;
+}
+
+.callback-section-info {
+  @include flex-space-around;
+  padding-top: 46px;
+  padding-bottom: 46px;
+}
+
+.callback-section-name {
+  font-family: $font-family-header, sans-serif;
+  font-size: 1.87em;
+  font-weight: 700;
+  line-height: 2;
+  color: #635c73;
+}
+
+.callback-section-input {
+  width: 335px;
+  height: 42px;
+  border-radius: 21px;
+  padding-left: 26px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  line-height: 22px;
+  background-color: #ffffff;
+}
+
+.callback-section-input::placeholder {
+  font-family: $font-family-header, sans-serif;
+  color: #c8cbcf;
+  font-size: 0.875em;
+  line-height: 1.2;
+}
+
+.callback-section-btn {
+  padding: 16px 38px;
+  border-radius: 21px;
+  background-color: #8d81ac;
+}
+
+.callback-section-btn a {
+  @include button-text;
+  font-size: 0.8em;
+  line-height: 1.31;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+
+/*--------------------------- F O T T E R   S E C T I O N -------------------------------*/
+.footer-columns {
+  padding-top: 73px;
+  padding-bottom: 51px;
+  @include flex-space-around;
+}
+
+.footer-column {
+
+}
+
+.footer-column:nth-child(1),
+.footer-column:nth-child(4) {
+  width: 300px;
+}
+
+.footer-column:nth-child(2) {
+  width: 106px;
+}
+
+.footer-column:nth-child(3) {
+  width: 221px;
+}
+
+.footer-column-logo-link {
+  text-decoration: none;
+
+}
+
+.footer-column-logo-div {
+  display: flex;
+  align-items: center;
+}
+
+.footer-column-logo-name {
+  @include footer-text-logo;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+.footer-column-logo-name span {
+  color: #8d81ac;
+}
+
+.footer-column-info {
+  @include footer-text-grey;
+  font-size: 0.875em;
+  line-height: 1.5;
+}
+
+.footer-navigation-links {
+  display: grid;
 }
 
 /*---------------------------------------------------------------------------------------------------*/
