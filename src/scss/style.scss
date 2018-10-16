@@ -390,11 +390,19 @@ $font-size: 3em;
 
 .footer-navigation-links {
   margin-top: 22px;
-  display: table-caption;
+  /*display: table-caption;*/
 }
 
 .contact-phone {
   @include footer-text-black-large;
+}
+
+.contact-phone a,
+.footer-column-header-info a,
+.footer-column-header a
+{
+  text-decoration: none;
+  color: #333333;
 }
 
 .contact-phone-available {
