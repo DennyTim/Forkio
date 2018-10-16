@@ -57,6 +57,7 @@ $font-size: 3em;
 }
 
 @mixin footer-text-black {
+  text-transform: capitalize;
   font-family: $font-family-header, sans-serif;
   color: #323232;
   font-size: 1em;
@@ -222,7 +223,7 @@ $font-size: 3em;
 }
 
 .btn-purchase {
-  padding: 20px 50px;
+  padding: 15px 50px;
   @include button-text;
   font-size: 0.94em;
   line-height: 1;
@@ -328,17 +329,13 @@ $font-size: 3em;
   @include flex-space-around;
 }
 
-.footer-column {
-
-}
-
 .footer-column:nth-child(1),
 .footer-column:nth-child(4) {
   width: 300px;
 }
 
 .footer-column:nth-child(2) {
-  width: 106px;
+  width: 146px;
 }
 
 .footer-column:nth-child(3) {
@@ -347,7 +344,6 @@ $font-size: 3em;
 
 .footer-column-logo-link {
   text-decoration: none;
-
 }
 
 .footer-column-logo-div {
@@ -355,24 +351,96 @@ $font-size: 3em;
   align-items: center;
 }
 
+.footer-column-logo-img {
+  width: 43px;
+  height: 41px;
+  background: url("../img/logo.png");
+}
+
+.footer-column-logo-link:hover .footer-column-logo-img {
+  background: url("../img/logo_hover.png");
+}
+
 .footer-column-logo-name {
+  margin-left: 18px;
   @include footer-text-logo;
   text-transform: uppercase;
   color: #333333;
+}
+
+.footer-column-logo-link:hover .footer-column-logo-name {
+  color: #8d81ac;
 }
 
 .footer-column-logo-name span {
   color: #8d81ac;
 }
 
-.footer-column-info {
+.footer-column-logo-link:hover .footer-column-logo-name span {
+  color: #333333;
+}
+
+.footer-column-forkio {
+  margin-top: 36px;
+  margin-bottom: 40px;
   @include footer-text-grey;
   font-size: 0.875em;
   line-height: 1.5;
 }
 
 .footer-navigation-links {
-  display: grid;
+  margin-top: 22px;
+  display: table-caption;
+}
+
+.contact-phone {
+  @include footer-text-black-large;
+}
+
+.contact-phone-available {
+  margin-top: 5px;
+  text-transform: uppercase;
+  @include footer-text-grey;
+  font-size: 0.75em;
+  line-height: 2.33;
+}
+
+.contact-address,
+.footer-column-info {
+  @include footer-text-grey;
+  font-size: 0.87em;
+  line-height: 1.64;
+}
+
+.footer-column-header {
+  @include footer-text-black;
+}
+
+.footer-column-header-info {
+  @include footer-text-black;
+  margin-bottom: 24px;
+  margin-left: 52px;
+}
+
+.contact-main-address {
+  margin-top: 25px;
+  margin-bottom: 5px;
+  @include footer-text-black;
+}
+
+.footer-navigation-link {
+  text-transform: capitalize;
+  text-decoration: none;
+  font-family: $font-family-header, sans-serif;
+  color: #8d81ac;
+  font-size: 0.94em;
+  line-height: 1.53;
+  border-bottom: 1px solid transparent;
+}
+
+.footer-navigation-link:hover {
+  border-bottom: 1px solid #8d81ac;
+
 }
 
 /*---------------------------------------------------------------------------------------------------*/
