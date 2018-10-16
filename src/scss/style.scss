@@ -219,15 +219,21 @@ $font-size: 3em;
 
 .plan-btn-purchase {
   margin: 38px 25px;
+}
+
+.btn-purchase {
   padding: 20px 50px;
+  @include button-text;
+  font-size: 0.94em;
+  line-height: 1;
   border-radius: 40px;
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-.plan-btn-purchase a {
-  @include button-text;
-  font-size: 0.94em;
-  line-height: 1;
+.btn-purchase:hover {
+  color: #7f6d78;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .subscription-section-info {
@@ -298,15 +304,19 @@ $font-size: 3em;
 }
 
 .callback-section-btn {
-  padding: 16px 38px;
+  @include button-text;
+  padding: 14px 38px;
   border-radius: 21px;
   background-color: #8d81ac;
-}
-
-.callback-section-btn a {
-  @include button-text;
   font-size: 0.8em;
   line-height: 1.31;
+  border: 1px solid transparent;
+}
+
+.callback-section-btn:hover {
+  background-color: #ffffff;
+  border: 1px solid #8d81ac;
+  color: #8d81ac;
 }
 
 /*---------------------------------------------------------------------------------------------------*/
