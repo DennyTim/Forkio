@@ -1,12 +1,39 @@
 /*----------------------------------- D R O P S -----------------------------------------*/
 
 /*
-	!!! font-family: 'Myriad Pro', sans-serif;
+
 */
 
 /*---------------- R E P E T I T I V E ` S    S E L E C T O R S -------------------------*/
 
 
+
+/*----------------------------- @V A R I A B L E S  -------------------------------------*/
+
+$white: #ffffff;
+$violet: #8d81ac;
+$grey: #848e97;
+$contfz: 10;
+
+/*-----------------------------   @E X T E N D S  ---------------------------------------*/
+
+.container {
+	margin: 0 auto;
+	max-width: 1200px;
+	font-size: 10px;
+}
+
+.lato {
+	font-family: 'Lato', sans-serif;
+}
+
+.mont {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.myriad {
+	font-family: 'Myriad Pro', sans-serif;
+}
 
 /*----------------------------- @M I X I N S  -------------------------------------------*/
 
@@ -17,12 +44,11 @@
 	text-decoration: none;
 }
 
-@mixin stylemenu ($size) {
+@mixin stylemenu {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	&-item {
-		padding-right: $size;
 		display: flex;
 		align-items: center;
 		&-link {
@@ -32,36 +58,36 @@
 }
 
 @mixin shellbtn {
+	display: inline-block;
 	background-color: $violet;
 	border: none;
-	border-radius: 5px;
+	border-radius: 46px;
 	color: $white;
 	cursor: pointer;
 	outline: none;
+	text-decoration: none;
 	@extend .mont;
 }
 
-/*----------------------------- @V A R I A B L E S  -------------------------------------*/
+@mixin text ($num, $fw, $color, $fam) {
+	font-size: ($num/$contfz) + em;
 
-$white: #ffffff;
-$violet: #8d81ac;
+	@if $fw == 0 {
+		font-weight: 400;
+	} @else {
+		font-weight: $fw;
+	}
 
-/*-----------------------------   @E X T E N D S  ---------------------------------------*/
+	@if $fam == lato {
+		font-family: 'Lato', sans-serif;
+	} @else if $fam == mont {
+		font-family: 'Montserrat', sans-serif;
+	}
 
-.container {
-	margin: 0 auto;
-	max-width: 1200px;
+	color: $color;
+	text-align: center;
 }
 
-.lato {
-	font-family: 'Lato', sans-serif;
-	font-weight: 700;
-}
-
-.mont {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 700;
-}
 
 /*--------------------------- F O R K I O    H E A D E R -------------------------------*/
 
@@ -70,7 +96,6 @@ $violet: #8d81ac;
 
 	.navbar-container {
 		@extend .container;
-		font-size: 24px;
 
 		.navbar-menu {
 			@include simpleflex;
@@ -84,30 +109,127 @@ $violet: #8d81ac;
 				}
 
 				.navbar-menu-header {
-					@extend .lato;
-					font-size: 1em;
-					color: $violet;
+					@include text(24, 700, $violet, lato);
 					text-transform: uppercase;
 				}
 			}
 
 			.navbar-list {
-				@include stylemenu(48px);
+				@include stylemenu;
 
 				&-item {
+					padding-right: 48px;
 					&-link {
-						color: $violet;
-						@extend .mont;
-						font-size: 0.6em;
+						@include text(16, 700, $violet, mont);
 					}
 				}
+			}
 
-				.navbar-shell-btn {
-					@include shellbtn;
-					padding: 12px 35px 11px 35px;
-					font-size: 0.6em;
-				}
+			.navbar-shell-btn {
+				@include shellbtn;
+				@include text(16, 700, $white, mont);
+				padding: 12px 35px 11px 35px;
 			}
 		}
+	}
+}
+
+/*------------------------------ M A I N   I M G -----------------------------------*/
+
+.main {
+	position: relative;
+	background-image: url(../img/main.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+	height: 100vh;
+
+	.main-container {
+		@extend .container;
+		padding-top: 60px;
+
+		.main-header {
+			@include text(82, 700, $white, mont);
+			text-transform: capitalize;
+		}
+
+		.main-caption {
+			@include text(30, 0, $violet, mont);
+			padding-top: 18px;
+		}
+
+		.main-desc {
+			@include text(16, 0, $grey, mont);
+			padding-top: 18px;
+		}
+
+		.main-btn {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			.main-btn-item {
+				@include shellbtn;
+				@include text(21, 700, $white, mont);
+				padding: 23px 63px 23px 63px;
+			}
+			.main-btn-desc {
+				@include text(14, 0, $grey, mont);
+				padding-top: 19px;
+			}
+			transform: translate(-50%, calc(100% - 37px));
+		}
+	}
+}
+
+/*------------------------------   E D I T O R   ---------------------------------*/
+
+.editor {
+	padding: 129px 0 70px 0;
+
+	.editor-container {
+		@extend .container;
+
+		.editor-header {
+			@include text(54, 700, #635c73, mont);
+			text-transform: uppercase;
+		}
+
+		.editor-desc {
+			@include text(21, 0, #484848, lato);
+			padding-top: 23px;
+		}
+	}
+
+	.editor-counters {
+		padding-top: 36px;
+		@include simpleflex;
+		justify-content: center;
+
+		.editor-count-item {
+			padding-right: 30px;
+			display: flex;
+			justify-content: center;
+
+			.editor-count-btn {
+				border: 1px solid rgb(214, 214, 214);
+				background-color: rgb(242, 242, 242);
+				outline: none;
+				i {
+					padding: 4px 0 4px 4px;
+				}
+				span {
+					padding: 4px 4px 4px 0;
+				}
+			}
+
+			input {
+				border: 1px solid rgb(214, 214, 214);
+				width: 60px;
+				height: 26px;
+				text-align: center;
+				outline: none;
+			}
+		}
+
 	}
 }
