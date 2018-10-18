@@ -1,19 +1,18 @@
 /*----------S U B S C R I P T I O N   S E C T I O N-----------*/
 $(function ourServices() {
 
-    $("#plans").on("click", ".subscription-plan", function () {
+    $("#subs-plans").on("click", ".subs-section__plans-unit", function () {
 
-        let tabs = $("#plans .subscription-plan"),
-            cont = $("#plans .subscription-plan-header"),
-            btn = $("#plans .plan-btn-purchase"),
-            cond = $("#plans .subscription-plan-conditions");
+        let tabs = $("#subs-plans .subs-section__plans-unit"),
+            cont = $("#subs-plans .subs-section__plans-unit-header"),
+            btn = $("#subs-plans .subs-section__plans-unit-terms__purchase"),
+            cond = $("#subs-plans .subs-section__plans-unit-terms");
 
         // Удаляем классы active
         tabs.removeClass("active");
         cont.removeClass("active-header");
         btn.removeClass("active-plan-btn");
         cond.removeClass("active-conditions");
-
 
         // Добавляем классы active
         $(this).addClass("active");

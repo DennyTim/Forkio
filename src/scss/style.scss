@@ -1,7 +1,15 @@
 $bcg-image: url("../img/Layer_OurPartners.png");
 $font-family-header: "Montserrat";
 $font-family-info: "Source Sans Pro";
-$font-size: 3em;
+$font-size: 48px;
+$white-color: #ffffff;
+$purple-color: #8d81ac;
+$grey-color: #848e97;
+$black-color: #323232;
+
+$jc: center;
+$jc: space-around;
+$jc: space-between;
 
 @mixin background-settings {
   background-repeat: no-repeat;
@@ -14,62 +22,27 @@ $font-size: 3em;
   text-align: center;
   text-transform: capitalize;
   font-family: $font-family-header, sans-serif;
-  font-weight: 700;
   font-size: $font-size;
-  color: #ffffff;
-  line-height: 0.3;
+  color: $white-color;
 }
 
 @mixin button-text {
   text-transform: uppercase;
   text-decoration: none;
   font-family: $font-family-header, sans-serif;
-  color: #ffffff;
+  color: $white-color;
 }
 
-@mixin flex-center {
+@mixin flex-configuration ($jc){
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-@mixin flex-space-around {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-@mixin flex-space-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-@mixin footer-text-logo {
-  font-family: $font-family-header, sans-serif;
-  font-size: 1.5em;
-  line-height: 0.667;
-}
-
-@mixin footer-text-grey {
-  font-family: $font-family-header, sans-serif;
-  color: #848e97;
-}
-
-@mixin footer-text-black {
-  text-transform: capitalize;
-  font-family: $font-family-header, sans-serif;
-  color: #323232;
-  font-size: 1em;
-  line-height: 1.75;
-}
-
-@mixin footer-text-black-large {
-  font-family: $font-family-header, sans-serif;
-  color: #323232;
-  font-size: 1.875em;
-  font-weight: 700;
-  line-height: 0.933;
+  @if $jc == space-between {
+    justify-content: space-between;
+  } @else if($jc == center) {
+    justify-content: center;
+  } @else if($jc == space-around) {
+    justify-content: space-around;
+  }
 }
 
 /*--------------------------- O U R   P A R T N E R S   S E C T I O N -------------------------------*/
@@ -83,109 +56,115 @@ $font-size: 3em;
 .our-partners {
   background: $bcg-image;
   @include background-settings;
-  padding-top: 6em;
+  padding-top: 108px;
   text-align: center;
   font-weight: 700;
 }
 
-.our-partners-header {
+.our-partners__header {
   @include header-section-name;
+  font-weight: 700;
+  line-height: 0.3;
 }
 
-.our-partners-upper, .our-partners-bottom {
-  @include flex-space-between;
+.our-partners__header-partner-upper,
+.our-partners__header-partner-bottom
+{
+  @include flex-configuration (space-between);
 }
 
-.our-partners-upper {
-  padding-top: 5.75em;
-  padding-bottom: 6.63em;
+.our-partners__header-partner-upper {
+  padding-top: 92px;
+  padding-bottom: 106px;
 }
 
-.our-partners-bottom {
-  padding-bottom: 6.13em;
+.our-partners__header-partner-bottom {
+  padding-bottom: 98px;
 }
 
-.our-partners-bottom-line {
-  padding-bottom: 0.1em;
-  background-color: rgba(77, 57, 77, 0.75);
+.our-partners__header-partner-info:nth-child(2),
+.our-partners__header-partner-info:nth-child(5) {
+  padding-left: 120px;
+  padding-right: 120px;
 }
 
-.hr-line {
-  border: none;
-  width: 48.75em;
-  height: 0.125em;
-  background-color: rgba(199, 199, 199, 0.2);
+.our-partners__header-partner-info-logo {
+  padding-bottom: 35px;
 }
 
-.our-partner {
+.our-partners__header-partner-info-about {
   font-family: $font-family-info, sans-serif;
-  color: #ffffff;
+  color: $white-color;
   font-size: $font-size/3;
   font-style: italic;
   line-height: 1.5;
 }
 
-.our-partner:nth-child(2),
-.our-partner:nth-child(5) {
-  padding-left: 7.5em;
-  padding-right: 7.5em;
+.our-partners__bottom-line {
+  padding-bottom: 1.5px;
+  background-color: rgba(77, 57, 77, 0.75);
 }
 
-.our-partner-logo {
-  padding-bottom: 2.2em;
+.our-partners__bottom-line-hr {
+  border: none;
+  width: 780px;
+  height: 2px;
+  background-color: rgba(199, 199, 199, 0.2);
 }
 
 /*---------------------------------------------------------------------------------------------------*/
 
 /*--------------------------- S U B S C R I P T I O N   S E C T I O N -------------------------------*/
-.subscription-section {
+.subs-section {
   background: $bcg-image;
   @include background-settings;
   text-align: center;
 }
 
-.subscription-header {
+.subs-section__header {
   padding-top: 79px;
   @include header-section-name;
+  font-weight: 700;
+  line-height: 0.3;
 }
 
-.bcg-blurriness {
+.subs-section__bcg {
   background-color: rgba(77, 57, 77, 0.85);
 }
 
-.subscription-plans {
+.subs-section__plans {
   padding-top: 122px;
-  @include flex-space-around;
+  @include flex-configuration(space-around);
 }
 
-.subscription-plan {
+.subs-section__plans-unit {
   background-color: rgba(255, 255, 255, 0.11);
   width: 257px;
   height: 457px;
 }
 
-.subscription-plan-header {
-  @include flex-center;
+.subs-section__plans-unit-header {
+  @include flex-configuration(center);
   height: 97px;
   background-color: rgba(255, 255, 255, 0.06);
   text-transform: uppercase;
   font-family: $font-family-header, sans-serif;
-  color: #ffffff;
-  font-size: 1.5em;
+  color: $white-color;
+  font-size: 24px;
   line-height: 0.625;
 }
 
-.subscription-plan-conditions {
+.subs-section__plans-unit-terms {
   display: grid;
   align-items: center;
   height: 360px;
 }
 
-.plan-cost {
+.subs-section__plans-unit-terms__cost {
   padding-top: 32px;
   font-family: $font-family-header, sans-serif;
-  color: #ffffff;
-  font-size: 3.76em;
+  color: $white-color;
+  font-size: 60px;
   line-height: 0.25;
   font-weight: 700;
 }
@@ -194,38 +173,38 @@ $font-size: 3em;
   font-weight: 400;
 }
 
-.plan-period {
+.subs-section__plans-unit-terms__period {
   margin-top: 24px;
   text-transform: uppercase;
   font-family: $font-family-header, sans-serif;
   color: rgba(162, 145, 165, 0.8);
-  font-size: 0.87em;
+  font-size: 14px;
   line-height: 1.1;
 }
 
-.plan-hr-line {
+.subs-section__plans-unit-terms__line {
   border: none;
-  background-color: #8d81ac;
+  background-color: $purple-color;
   width: 60px;
   height: 5px;
 }
 
-.plan-benefits {
+.subs-section__plans-unit-terms__benefits {
   text-transform: capitalize;
   font-family: $font-family-header, sans-serif;
-  color: #ffffff;
-  font-size: 1em;
+  color: $white-color;
+  font-size: 16px;
   line-height: 0.33;
 }
 
-.plan-btn-purchase {
+.subs-section__plans-unit-terms__purchase {
   margin: 38px 25px;
 }
 
 .btn-purchase {
   padding: 15px 50px;
   @include button-text;
-  font-size: 0.94em;
+  font-size: 15px;
   line-height: 1;
   border-radius: 40px;
   background-color: rgba(255, 255, 255, 0.15);
@@ -237,10 +216,13 @@ $font-size: 3em;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.subscription-section-info {
+.subs-section__about {
   padding: 133px 77px 77px 77px;
+}
+
+.subs-section__about__info {
   font-family: $font-family-info, sans-serif;
-  font-size: 0.875em;
+  font-size: 14px;
   line-height: 1.5;
   color: rgba(162, 145, 165, 0.8);
 }
@@ -271,21 +253,21 @@ $font-size: 3em;
   background-color: #f4f4f4;
 }
 
-.callback-section-info {
-  @include flex-space-around;
+.callback-section__info {
+  @include flex-configuration(space-around);
   padding-top: 46px;
   padding-bottom: 46px;
 }
 
-.callback-section-name {
+.callback-section__info__name {
   font-family: $font-family-header, sans-serif;
-  font-size: 1.87em;
+  font-size: 30px;
   font-weight: 700;
   line-height: 2;
   color: #635c73;
 }
 
-.callback-section-input {
+.callback-section__info__form-input {
   width: 335px;
   height: 42px;
   border-radius: 21px;
@@ -294,161 +276,180 @@ $font-size: 3em;
   outline: none;
   font-size: 14px;
   line-height: 22px;
-  background-color: #ffffff;
+  background-color: $white-color;
 }
 
-.callback-section-input::placeholder {
+.callback-section__info__form-input::placeholder {
   font-family: $font-family-header, sans-serif;
   color: #c8cbcf;
-  font-size: 0.875em;
+  font-size: 14px;
   line-height: 1.2;
 }
 
-.callback-section-btn {
+.callback-section__info__btn {
   @include button-text;
   padding: 14px 38px;
   border-radius: 21px;
-  background-color: #8d81ac;
-  font-size: 0.8em;
+  background-color: $purple-color;
+  font-size: 13px;
   line-height: 1.31;
   border: 1px solid transparent;
 }
 
-.callback-section-btn:hover {
-  background-color: #ffffff;
-  border: 1px solid #8d81ac;
-  color: #8d81ac;
+.callback-section__info__btn:hover {
+  background-color: $white-color;
+  border: 1px solid $purple-color;
+  color: $purple-color;
 }
 
 /*---------------------------------------------------------------------------------------------------*/
 
 /*--------------------------- F O T T E R   S E C T I O N -------------------------------*/
-.footer-columns {
+.footer__columns {
   padding-top: 73px;
   padding-bottom: 51px;
-  @include flex-space-around;
+  @include flex-configuration(space-around);
 }
 
-.footer-column:nth-child(1),
-.footer-column:nth-child(4) {
+.footer__columns__item:nth-child(1),
+.footer__columns__item:nth-child(4) {
   width: 300px;
 }
 
-.footer-column:nth-child(2) {
+.footer__columns__item:nth-child(2) {
   width: 146px;
 }
 
-.footer-column:nth-child(3) {
+.footer__columns__item:nth-child(3) {
   width: 221px;
 }
 
-.footer-column-logo-link {
+.footer__columns__item-logo-link {
   text-decoration: none;
 }
 
-.footer-column-logo-div {
+.footer__columns__item__logo-div {
   display: flex;
   align-items: center;
 }
 
-.footer-column-logo-img {
+.footer__columns__item__logo-div-img {
   width: 43px;
   height: 41px;
   background: url("../img/logo.png");
 }
 
-.footer-column-logo-link:hover .footer-column-logo-img {
+.footer__columns__item-logo-link:hover .footer__columns__item__logo-div-img {
   background: url("../img/logo_hover.png");
 }
 
-.footer-column-logo-name {
+.footer__columns__item__logo-div-name {
   margin-left: 18px;
-  @include footer-text-logo;
+  font-family: $font-family-header, sans-serif;
   text-transform: uppercase;
+  font-size: 24px;
+  line-height: 0.667;
   color: #333333;
 }
 
-.footer-column-logo-link:hover .footer-column-logo-name {
-  color: #8d81ac;
+.footer__columns__item-logo-link:hover .footer__columns__item__logo-div-name {
+  color: $purple-color;
 }
 
-.footer-column-logo-name span {
-  color: #8d81ac;
+.footer__columns__item__logo-div-name span {
+  color: $purple-color;
 }
 
-.footer-column-logo-link:hover .footer-column-logo-name span {
+.footer__columns__item-logo-link:hover .footer__columns__item__logo-div-name span {
   color: #333333;
 }
 
-.footer-column-forkio {
+.footer__columns__item-forkio {
   margin-top: 36px;
   margin-bottom: 40px;
-  @include footer-text-grey;
-  font-size: 0.875em;
+  font-family: $font-family-header, sans-serif;
+  color: $grey-color;
+  font-size: 14px;
   line-height: 1.5;
 }
 
-.footer-navigation-links {
+.footer__columns__item__nvg-links {
   margin-top: 22px;
-  /*display: table-caption;*/
 }
 
-.contact-phone {
-  @include footer-text-black-large;
+.footer__columns__item__contact-phone {
+  font-family: $font-family-header, sans-serif;
+  color: $black-color;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 0.933;
 }
 
-.contact-phone a,
-.footer-column-header-info a,
-.footer-column-header a
+.footer__columns__item__contact-phone a,
+.footer__columns__item__header-info a,
+.footer__columns__item-header a
 {
   text-decoration: none;
   color: #333333;
 }
 
-.contact-phone-available {
+.footer__columns__item__contact-phone-able {
   margin-top: 5px;
   text-transform: uppercase;
-  @include footer-text-grey;
-  font-size: 0.75em;
+  font-family: $font-family-header, sans-serif;
+  color: $grey-color;
+  font-size: 12px;
   line-height: 2.33;
 }
 
-.contact-address,
-.footer-column-info {
-  @include footer-text-grey;
-  font-size: 0.87em;
+.footer__columns__item__contact-adds,
+.footer__columns__item__info-about {
+  font-family: $font-family-header, sans-serif;
+  color: $grey-color;
+  font-size: 14px;
   line-height: 1.64;
 }
 
-.footer-column-header {
-  @include footer-text-black;
+.footer__columns__item-header {
+  text-transform: capitalize;
+  font-family: $font-family-header, sans-serif;
+  color: $black-color;
+  font-size: 16px;
+  line-height: 1.75;
 }
 
-.footer-column-header-info {
-  @include footer-text-black;
+.footer__columns__item__header-info {
+  text-transform: capitalize;
+  font-family: $font-family-header, sans-serif;
+  color: $black-color;
   margin-bottom: 24px;
   margin-left: 52px;
+  font-size: 16px;
+  line-height: 1.75;
 }
 
-.contact-main-address {
+.footer__columns__item__contact-main-adds {
   margin-top: 25px;
   margin-bottom: 5px;
-  @include footer-text-black;
+  text-transform: capitalize;
+  font-family: $font-family-header, sans-serif;
+  color: $black-color;
+  font-size: 16px;
+  line-height: 1.75;
 }
 
-.footer-navigation-link {
+.footer__columns__item__nvg-link {
   text-transform: capitalize;
   text-decoration: none;
   font-family: $font-family-header, sans-serif;
-  color: #8d81ac;
-  font-size: 0.94em;
+  color: $purple-color;
+  font-size: 15px;
   line-height: 1.53;
   border-bottom: 1px solid transparent;
 }
 
-.footer-navigation-link:hover {
-  border-bottom: 1px solid #8d81ac;
-
+.footer__columns__item__nvg-link:hover {
+  border-bottom: 1px solid $purple-color;
 }
 
 /*---------------------------------------------------------------------------------------------------*/
