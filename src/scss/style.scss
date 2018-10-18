@@ -61,10 +61,10 @@ $contfz: 10;
 	display: inline-block;
 	background-color: $violet;
 	border: none;
+	outline: none;
 	border-radius: 46px;
 	color: $white;
 	cursor: pointer;
-	outline: none;
 	text-decoration: none;
 	@extend .mont;
 }
@@ -96,23 +96,25 @@ $contfz: 10;
 
 	.navbar-container {
 		@extend .container;
+		@include simpleflex;
+
+		.navbar-menu-logo {
+			@include simpleflex;
+			justify-content: flex-start;
+
+			.navbar-menu-img {
+				padding: 30px 17px 29px 0px;
+				height: 41px;
+			}
+
+			.navbar-menu-header {
+				@include text(24, 700, $violet, lato);
+				text-transform: uppercase;
+			}
+		}
 
 		.navbar-menu {
 			@include simpleflex;
-
-			.navbar-menu-logo {
-				@include simpleflex;
-
-				.navbar-menu-img {
-					padding: 30px 17px 29px 0px;
-					height: 41px;
-				}
-
-				.navbar-menu-header {
-					@include text(24, 700, $violet, lato);
-					text-transform: uppercase;
-				}
-			}
 
 			.navbar-list {
 				@include stylemenu;
@@ -230,6 +232,150 @@ $contfz: 10;
 				outline: none;
 			}
 		}
+	}
+}
+
+
+/*-------------------------   F U N C T I O N A L   ----------------------------*/
+
+.functional {
+	background-color: rgb(244, 244, 244);
+    position: relative;
+	overflow-x: hidden;
+
+	.functional-container {
+		@extend .container;
+		@include simpleflex;
+		padding: 84px 0 69px;
+		align-items: flex-start;
+		flex-wrap: wrap;
+
+		.functional-desc {
+			order: 3;
+			flex-basis: 50%;
+    		text-align: center;
+
+			.functional-desc-header {
+				@include text(48, 700, #8d81ac, mont);
+			}
+		}
+
+		.functional-list {
+			flex-basis: 50%;
+
+			.functional-list-item {
+				@include simpleflex;
+				padding-bottom: 34px;
+
+				.functional-list-item-img {
+					justify-content: center;
+					flex-basis: 20%;
+				}
+
+				.functional-list-item-text {
+					display: flex;
+					flex-direction: column;
+					flex-basis: 80%;
+
+					.functional-list-item-header {
+						@include text(16, 0, #323232, mont);
+						margin-bottom: 17px;
+						text-align: left;
+					}
+
+					.functional-list-item-caption {
+						@include text(14, 0, #848e97, mont);
+						line-height: 1.5;
+						width: 70%;
+						text-align: left;
+					}
+				}
+			}
+		}
+
+		.functional-example {
+			position: absolute;
+			top: 20%;
+			left: 50%;
+		}
+	}
+}
+
+/*-------------------------   S L I D E R   ----------------------------*/
+
+.gallery {
+	padding: 87px 0 80px 0;
+
+	.gallery-container {
+		@extend .container;
+		@include simpleflex;
+		justify-content: center;
+
+		.gallery-carousel-prev {
+			background-color: #ffffff;
+			margin-right: 96px;
+			@include text(20, 700, rgb(164, 164, 164), mont);
+			border: none;
+			outline: none;
+			cursor: pointer;
+		}
+
+		.gallery-carousel-list {
+			@include simpleflex;
+
+			.gallery-list-item {
+
+				.gallery-item-human {
+					@include simpleflex;
+					justify-content: center;
+
+					.gallery-item-desc {
+						margin-left: 23px;
+
+						.gallery-item-desc-header {
+							@include text(24, 700, #635c73, mont);
+							text-align: left;
+						}
+
+						.gallery-item-desc-caption {
+							@include text(16, 0, #8d81ac, mont);
+							text-align: left;
+						}
+
+					}
+				}
+
+				.gallery-list-text {
+					margin-top: 48px;
+
+					p {
+						@include text(20, 0, #333333, lato);
+						line-height: 1.5;
+
+						.gallery-list-text-violet {
+							color: $violet;
+							text-decoration: none;
+						}
+					}
+
+					h5 {
+						margin-top: 24px;
+						@include text(16, 0, #848e97, mont);
+					}
+				}
+
+			}
+		}
+
+		.gallery-carousel-next {
+			background-color: #ffffff;
+			margin-left: 96px;
+			@include text(20, 700, rgb(164, 164, 164), mont);
+			border: none;
+			outline: none;
+			cursor: pointer;
+		}
 
 	}
+
 }
