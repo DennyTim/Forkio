@@ -1,5 +1,6 @@
 /*----------------------------------- D R O P S -----------------------------------------*/
 
+
 /*
 
 */
@@ -308,74 +309,166 @@ $contfz: 10;
 
 	.gallery-container {
 		@extend .container;
-		@include simpleflex;
-		justify-content: center;
 
-		.gallery-carousel-prev {
-			background-color: #ffffff;
-			margin-right: 96px;
-			@include text(20, 700, rgb(164, 164, 164), mont);
-			border: none;
-			outline: none;
-			cursor: pointer;
-		}
-
-		.gallery-carousel-list {
+		.gallery-carousel {
 			@include simpleflex;
+			justify-content: space-around;
+			position: relative;
 
-			.gallery-list-item {
+			.gallery-carousel-prev {
+				background-color: #ffffff;
+				margin-right: 96px;
+				@include text(20, 700, rgb(164, 164, 164), mont);
+				border: none;
+				outline: none;
+				cursor: pointer;
+			}
 
-				.gallery-item-human {
-					@include simpleflex;
-					justify-content: center;
+			.gallery-carousel-list {
+				@include simpleflex;
+				position: relative;
+				width: 900px;
+				height: 300px;
 
-					.gallery-item-desc {
-						margin-left: 23px;
+				.gallery-list-item {
+					position: absolute;
+					opacity: 0;
+					top: 0;
+					transition: All 0.8s;
 
-						.gallery-item-desc-header {
-							@include text(24, 700, #635c73, mont);
-							text-align: left;
+					.gallery-item-human {
+						@include simpleflex;
+						justify-content: center;
+
+						.gallery-item-desc {
+							margin-left: 23px;
+
+							.gallery-item-desc-header {
+								@include text(24, 700, #635c73, mont);
+								text-align: left;
+							}
+
+							.gallery-item-desc-caption {
+								@include text(16, 0, #8d81ac, mont);
+								text-align: left;
+							}
+
 						}
-
-						.gallery-item-desc-caption {
-							@include text(16, 0, #8d81ac, mont);
-							text-align: left;
-						}
-
 					}
+
+					.gallery-list-text {
+						margin-top: 48px;
+
+						p {
+							@include text(20, 0, #333333, lato);
+							line-height: 1.5;
+
+							.gallery-list-text-violet {
+								color: $violet;
+								text-decoration: none;
+							}
+						}
+
+						h5 {
+							margin-top: 24px;
+							@include text(16, 0, #848e97, mont);
+						}
+					}
+
 				}
 
-				.gallery-list-text {
-					margin-top: 48px;
+				/* JS selector*/
 
-					p {
-						@include text(20, 0, #333333, lato);
-						line-height: 1.5;
-
-						.gallery-list-text-violet {
-							color: $violet;
-							text-decoration: none;
-						}
-					}
-
-					h5 {
-						margin-top: 24px;
-						@include text(16, 0, #848e97, mont);
-					}
+				.active {
+					opacity: 1;
 				}
 
 			}
+
+			.gallery-carousel-next {
+				background-color: #ffffff;
+				margin-left: 96px;
+				@include text(20, 700, rgb(164, 164, 164), mont);
+				border: none;
+				outline: none;
+				cursor: pointer;
+			}
 		}
 
-		.gallery-carousel-next {
-			background-color: #ffffff;
-			margin-left: 96px;
-			@include text(20, 700, rgb(164, 164, 164), mont);
-			border: none;
-			outline: none;
-			cursor: pointer;
+		.gallery-carousel::after {
+			content: '';
+			width: 780px;
+			height: 2px;
+			background: #e5e5e5;
+			vertical-align: middle;
+ 			position: absolute;
+			left: 17%;
+			bottom: 0;
 		}
 
+		.gallery-social-list {
+			margin: 60px;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+
+
+			.gallery-carousel-btn {
+				align-items: center;
+				justify-self: center;
+
+
+				.gallery-btns-github {
+					padding: 17px 15px 18px 25px;
+					width: 200px;
+					background-color: rgb(243, 243, 243);
+					border-radius: 10px;
+
+					.gallery-btns-github-shell {
+						text-decoration: none;
+						@include text(21, 0, #000000, mont);
+						span {
+							margin-left: 36px;
+						}
+					}
+				}
+
+				.gallery-btns-twitter {
+					padding: 17px 15px 18px 25px;
+					width: 200px;
+					background-color: rgb(33, 167, 210);
+					border-radius: 10px;
+
+					.gallery-btns-twitter-shell {
+						text-decoration: none;
+						@include text(21, 0, #ffffff, mont);
+						span {
+							margin-left: 36px;
+						}
+					}
+				}
+
+				.gallery-btns-facebook {
+					padding: 17px 15px 18px 25px;
+					width: 200px;
+					background-color: rgb(56, 88, 153);
+					border-radius: 10px;
+
+					.gallery-btns-facebook-shell {
+						text-decoration: none;
+						@include text(21, 0, #ffffff, mont);
+						span {
+							margin-left: 36px;
+						}
+					}
+				}
+			}
+
+
+			.gallery-btns-caption {
+				margin-top: 18px;
+				@include text(14, 0, #848e97, mont);
+			}
+		}
 	}
-
 }
+
