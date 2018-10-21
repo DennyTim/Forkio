@@ -31,33 +31,94 @@ $contfz: 10;
 
 /*----------------------------- @M I X I N S  -------------------------------------------*/
 
-@mixin simpleflex {
+@mixin flex ($jc, $ai) {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	text-decoration: none;
-}
+	@if $jc == c {
+		justify-content: center;
+	} @else if $jc == sa {
+		justify-content: space-around;
+	} @else if $jc == sb {
+		justify-content: space-between;
+	} @else if $jc == fs {
+		justify-content: flex-start;
+	} @else if $jc == fe {
+		justify-content: flex-end;
+	}
 
-@mixin stylemenu {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	&__item {
-		display: flex;
+	@if $ai == c {
 		align-items: center;
+	} @else if $ai == sa {
+		align-items: space-around;
+	} @else if $ai == sb {
+		align-items: space-between;
+	} @else if $ai == fs {
+		align-items: flex-start;
+	} @else if $ai == fe {
+		align-items: flex-end;
 	}
 }
 
-@mixin shellbtn {
-	display: inline-block;
-	background-color: $violet;
-	border: none;
+@mixin comboflex ($jc1, $ai1, $jc2, $ai2) {
+	display: flex;
+	@if $jc1 == c {
+		justify-content: center;
+	} @else if $jc1 == sa {
+		justify-content: space-around;
+	} @else if $jc1 == sb {
+		justify-content: space-between;
+	} @else if $jc1 == fs {
+		justify-content: flex-start;
+	} @else if $jc1 == fe {
+		justify-content: flex-end;
+	}
+
+	@if $ai1 == c {
+		align-items: center;
+	} @else if $ai1 == sa {
+		align-items: space-around;
+	} @else if $ai1 == sb {
+		align-items: space-between;
+	} @else if $ai1 == fs {
+		align-items: flex-start;
+	} @else if $ai1 == fe {
+		align-items: flex-end;
+	}
+
+	&__item {
+		display: flex;
+		@if $jc2 == c {
+			justify-content: center;
+		} @else if $jc2 == sa {
+			justify-content: space-around;
+		} @else if $jc2 == sb {
+			justify-content: space-between;
+		} @else if $jc2 == fs {
+			justify-content: flex-start;
+		} @else if $jc2 == fe {
+			justify-content: flex-end;
+		}
+
+		@if $ai2 == c {
+			align-items: center;
+		} @else if $ai2 == sa {
+			align-items: space-around;
+		} @else if $ai2 == sb {
+			align-items: space-between;
+		} @else if $ai2 == fs {
+			align-items: flex-start;
+		} @else if $ai2 == fe {
+			align-items: flex-end;
+		}
+	}
+}
+
+@mixin shellbtn ($bc, $col) {
+	background-color: $bc;
+	border: 1px solid transparent;
 	outline: none;
-	border-radius: 46px;
-	color: $white;
+	color: $col;
 	cursor: pointer;
 	text-decoration: none;
-	@extend .mont;
 }
 
 @mixin text ($num, $fw, $color, $fam) {
@@ -79,6 +140,16 @@ $contfz: 10;
 	text-align: center;
 }
 
+@mixin btn-social ($bc, $br, $color) {
+	background-color: $bc;
+	border-radius: $br;
+	border: 1px solid $color;
+
+	&__shell {
+		text-decoration: none;
+	}
+}
+
 
 /*--------------------------- F O R K I O    H E A D E R -------------------------------*/
 
@@ -87,11 +158,11 @@ $contfz: 10;
 
 	.container {
 		@extend .main-container;
-		@include simpleflex;
+		@include flex (sb, c);
 
 		.nav-logo {
-			@include simpleflex;
-			justify-content: flex-start;
+			@include flex (fs, c);
+			text-decoration: none;
 
 			.nav-logo__img {
 				padding: 30px 17px 29px 0px;
@@ -102,13 +173,18 @@ $contfz: 10;
 				@include text(24, 700, $violet, lato);
 				text-transform: uppercase;
 			}
+
+			.nav-logo__text:hover {
+				color: $white;
+				transition: All 0.6s;
+			}
 		}
 
 		.nav-menu {
-			@include simpleflex;
+			@include flex (c, c);
 
 			.nav-list {
-				@include stylemenu;
+				@include comboflex(sb, c, sa, c);
 
 				&__item {
 					padding-right: 48px;
@@ -117,13 +193,27 @@ $contfz: 10;
 						@include text(16, 700, $violet, mont);
 						text-decoration: none;
 					}
+
+					.nav-list__link:hover {
+						@include text(16, 700, $white, mont);
+						transition: All 0.6s;
+					}
 				}
 			}
 
 			.by-btn {
-				padding: 12px 35px 11px 35px;
-				@include shellbtn;
+				@include shellbtn ($violet, $white);
 				@include text(16, 700, $white, mont);
+				@extend .mont;
+				display: inline-block;
+				padding: 12px 35px 11px 35px;
+				border-radius: 46px;
+			}
+
+			.by-btn:hover {
+				@include shellbtn ($white, $violet);
+				border: 1px solid $violet;
+				transition: All 0.6s;
 			}
 		}
 	}
@@ -162,17 +252,27 @@ $contfz: 10;
 			position: absolute;
 			bottom: 0;
 			left: 50%;
+			transform: translate(-50%, calc(100% - 37px));
 
 			.btn-down__item {
-				@include shellbtn;
+				@include shellbtn ($violet, $white);
 				@include text(21, 700, $white, mont);
+				@extend .mont;
+				display: inline-block;
+				border-radius: 46px;
 				padding: 23px 63px 23px 63px;
 			}
+
+			.btn-down__item:hover {
+				@include shellbtn ($white, $violet);
+				border: 1px solid $violet;
+				transition: All 0.6s;
+			}
+
 			.btn-down__desc {
 				@include text(14, 0, $grey, mont);
 				padding-top: 19px;
 			}
-			transform: translate(-50%, calc(100% - 37px));
 		}
 	}
 }
@@ -197,41 +297,41 @@ $contfz: 10;
 
 		.counters {
 			padding-top: 36px;
-			@include simpleflex;
-			justify-content: center;
+			@include flex (c, c);
 
 			.counters__item {
 				padding-right: 30px;
-				display: flex;
-				justify-content: center;
+				@include flex (c, c);
 
 				.counters__item-btn {
 					border: 1px solid rgb(214, 214, 214);
+					border-top-left-radius: 5px;
+					border-bottom-left-radius: 5px;
 					background-color: rgb(242, 242, 242);
 					outline: none;
 
-					.counters__item-icon {
-						padding: 4px 0 4px 4px;
+					i {
+						padding: 5px 0 5px 5px;
 					}
+
 					.counters__item-text {
-						padding: 4px 4px 4px 0;
+						padding: 5px 5px 5px 0;
 					}
 				}
 
 				.counters__item-display {
 					border: 1px solid rgb(214, 214, 214);
+					border-top-right-radius: 5px;
+					border-bottom-right-radius: 5px;
 					width: 60px;
-					height: 26px;
+					height: 22px;
 					text-align: center;
 					outline: none;
 				}
 			}
 		}
 	}
-
-
 }
-
 
 /*-------------------------   F U N C T I O N A L   ----------------------------*/
 
@@ -242,7 +342,7 @@ $contfz: 10;
 
 	.box {
 		@extend .main-container;
-		@include simpleflex;
+		@include flex (c, c);
 		padding: 84px 0 69px;
 		align-items: flex-start;
 		flex-wrap: wrap;
@@ -261,7 +361,7 @@ $contfz: 10;
 			flex-basis: 50%;
 
 			.services-list__item {
-				@include simpleflex;
+				@include flex (c, c);
 				padding-bottom: 34px;
 
 				.services-list__item-img {
@@ -308,8 +408,7 @@ $contfz: 10;
 		@extend .main-container;
 
 		.carousel {
-			@include simpleflex;
-			justify-content: space-around;
+			@include flex (sa, c);
 			position: relative;
 
 			.carousel__prev {
@@ -322,7 +421,7 @@ $contfz: 10;
 			}
 
 			.carousel__list {
-				@include simpleflex;
+				@include flex (c, c);
 				position: relative;
 				width: 900px;
 				height: 300px;
@@ -334,8 +433,7 @@ $contfz: 10;
 					transition: All 0.8s;
 
 					.portrait {
-						@include simpleflex;
-						justify-content: center;
+						@include flex (c, c);
 
 						.portrait__desc {
 							margin-left: 23px;
@@ -413,15 +511,12 @@ $contfz: 10;
 				align-items: center;
 				justify-self: center;
 
-
 				.btn-github {
 					padding: 17px 15px 18px 25px;
 					width: 200px;
-					background-color: rgb(243, 243, 243);
-					border-radius: 10px;
+					@include btn-social (rgb(243, 243, 243), 10px, transparent);
 
-					.btn-github__shell {
-						text-decoration: none;
+					&__shell {
 						@include text(21, 0, #000000, mont);
 
 						.btn-github__text {
@@ -433,11 +528,9 @@ $contfz: 10;
 				.btn-twitter {
 					padding: 17px 15px 18px 25px;
 					width: 200px;
-					background-color: rgb(33, 167, 210);
-					border-radius: 10px;
+					@include btn-social (rgb(33, 167, 210), 10px, transparent);
 
-					.btn-twitter__shell {
-						text-decoration: none;
+					&__shell {
 						@include text(21, 0, #ffffff, mont);
 
 						.btn-twitter__text {
@@ -449,11 +542,9 @@ $contfz: 10;
 				.btn-facebook {
 					padding: 17px 15px 18px 25px;
 					width: 200px;
-					background-color: rgb(56, 88, 153);
-					border-radius: 10px;
+					@include btn-social (rgb(56, 88, 153), 10px, transparent);
 
-					.btn-facebook__shell {
-						text-decoration: none;
+					&__shell {
 						@include text(21, 0, #ffffff, mont);
 
 						.btn-facebook__text {
@@ -461,8 +552,31 @@ $contfz: 10;
 						}
 					}
 				}
-			}
 
+				.btn-github:hover {
+					@include btn-social (#000000, 10px, transparent);
+					transition: All 0.6s;
+					.btn-github__shell {
+						@include text(21, 0, #ffffff, mont);
+					}
+				}
+
+				.btn-twitter:hover {
+					@include btn-social (#ffffff, 10px, rgb(33, 167, 210));
+					transition: All 0.6s;
+					.btn-twitter__shell {
+						@include text(21, 0, rgb(33, 167, 210), mont);
+					}
+				}
+
+				.btn-facebook:hover {
+					@include btn-social (#ffffff, 10px, rgb(56, 88, 153));
+					transition: All 0.6s;
+					.btn-facebook__shell {
+						@include text(21, 0, rgb(56, 88, 153), mont);
+					}
+				}
+			}
 
 			.social-btns__caption {
 				margin-top: 18px;
