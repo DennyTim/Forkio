@@ -1,13 +1,6 @@
 /*----------------------------------- D R O P S -----------------------------------------*/
 
-
-/*
-
-*/
-
 /*---------------- R E P E T I T I V E ` S    S E L E C T O R S -------------------------*/
-
-
 
 /*----------------------------- @V A R I A B L E S  -------------------------------------*/
 
@@ -18,7 +11,7 @@ $contfz: 10;
 
 /*-----------------------------   @E X T E N D S  ---------------------------------------*/
 
-.container {
+.main-container {
 	margin: 0 auto;
 	max-width: 1200px;
 	font-size: 10px;
@@ -49,12 +42,9 @@ $contfz: 10;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	&-item {
+	&__item {
 		display: flex;
 		align-items: center;
-		&-link {
-			text-decoration: none;
-		}
 	}
 }
 
@@ -92,46 +82,48 @@ $contfz: 10;
 
 /*--------------------------- F O R K I O    H E A D E R -------------------------------*/
 
-.navbar {
+.section-nav {
 	background: rgb(34, 33, 37);
 
-	.navbar-container {
-		@extend .container;
+	.container {
+		@extend .main-container;
 		@include simpleflex;
 
-		.navbar-menu-logo {
+		.nav-logo {
 			@include simpleflex;
 			justify-content: flex-start;
 
-			.navbar-menu-img {
+			.nav-logo__img {
 				padding: 30px 17px 29px 0px;
 				height: 41px;
 			}
 
-			.navbar-menu-header {
+			.nav-logo__text {
 				@include text(24, 700, $violet, lato);
 				text-transform: uppercase;
 			}
 		}
 
-		.navbar-menu {
+		.nav-menu {
 			@include simpleflex;
 
-			.navbar-list {
+			.nav-list {
 				@include stylemenu;
 
-				&-item {
+				&__item {
 					padding-right: 48px;
-					&-link {
+
+					.nav-list__link {
 						@include text(16, 700, $violet, mont);
+						text-decoration: none;
 					}
 				}
 			}
 
-			.navbar-shell-btn {
+			.by-btn {
+				padding: 12px 35px 11px 35px;
 				@include shellbtn;
 				@include text(16, 700, $white, mont);
-				padding: 12px 35px 11px 35px;
 			}
 		}
 	}
@@ -139,7 +131,7 @@ $contfz: 10;
 
 /*------------------------------ M A I N   I M G -----------------------------------*/
 
-.main {
+.section-main {
 	position: relative;
 	background-image: url(../img/main.png);
     background-repeat: no-repeat;
@@ -147,35 +139,36 @@ $contfz: 10;
     background-size: cover;
 	height: 100vh;
 
-	.main-container {
-		@extend .container;
+	.inner {
+		@extend .main-container;
 		padding-top: 60px;
 
-		.main-header {
+		.inner__header {
 			@include text(82, 700, $white, mont);
 			text-transform: capitalize;
 		}
 
-		.main-caption {
+		.inner__caption {
 			@include text(30, 0, $violet, mont);
 			padding-top: 18px;
 		}
 
-		.main-desc {
+		.inner__desc {
 			@include text(16, 0, $grey, mont);
 			padding-top: 18px;
 		}
 
-		.main-btn {
+		.btn-down {
 			position: absolute;
 			bottom: 0;
 			left: 50%;
-			.main-btn-item {
+
+			.btn-down__item {
 				@include shellbtn;
 				@include text(21, 700, $white, mont);
 				padding: 23px 63px 23px 63px;
 			}
-			.main-btn-desc {
+			.btn-down__desc {
 				@include text(14, 0, $grey, mont);
 				padding-top: 19px;
 			}
@@ -186,105 +179,108 @@ $contfz: 10;
 
 /*------------------------------   E D I T O R   ---------------------------------*/
 
-.editor {
+.section-desc {
 	padding: 129px 0 70px 0;
 
-	.editor-container {
-		@extend .container;
+	.holder {
+		@extend .main-container;
 
-		.editor-header {
+		.holder__header {
 			@include text(54, 700, #635c73, mont);
 			text-transform: uppercase;
 		}
 
-		.editor-desc {
+		.holder__desc {
 			@include text(21, 0, #484848, lato);
 			padding-top: 23px;
 		}
-	}
 
-	.editor-counters {
-		padding-top: 36px;
-		@include simpleflex;
-		justify-content: center;
-
-		.editor-count-item {
-			padding-right: 30px;
-			display: flex;
+		.counters {
+			padding-top: 36px;
+			@include simpleflex;
 			justify-content: center;
 
-			.editor-count-btn {
-				border: 1px solid rgb(214, 214, 214);
-				background-color: rgb(242, 242, 242);
-				outline: none;
-				i {
-					padding: 4px 0 4px 4px;
-				}
-				span {
-					padding: 4px 4px 4px 0;
-				}
-			}
+			.counters__item {
+				padding-right: 30px;
+				display: flex;
+				justify-content: center;
 
-			input {
-				border: 1px solid rgb(214, 214, 214);
-				width: 60px;
-				height: 26px;
-				text-align: center;
-				outline: none;
+				.counters__item-btn {
+					border: 1px solid rgb(214, 214, 214);
+					background-color: rgb(242, 242, 242);
+					outline: none;
+
+					.counters__item-icon {
+						padding: 4px 0 4px 4px;
+					}
+					.counters__item-text {
+						padding: 4px 4px 4px 0;
+					}
+				}
+
+				.counters__item-display {
+					border: 1px solid rgb(214, 214, 214);
+					width: 60px;
+					height: 26px;
+					text-align: center;
+					outline: none;
+				}
 			}
 		}
 	}
+
+
 }
 
 
 /*-------------------------   F U N C T I O N A L   ----------------------------*/
 
-.functional {
+.content {
 	background-color: rgb(244, 244, 244);
-    position: relative;
+	position: relative;
 	overflow-x: hidden;
 
-	.functional-container {
-		@extend .container;
+	.box {
+		@extend .main-container;
 		@include simpleflex;
 		padding: 84px 0 69px;
 		align-items: flex-start;
 		flex-wrap: wrap;
 
-		.functional-desc {
+		.box__header {
 			order: 3;
 			flex-basis: 50%;
     		text-align: center;
 
-			.functional-desc-header {
+			.box__header-text {
 				@include text(48, 700, #8d81ac, mont);
 			}
 		}
 
-		.functional-list {
+		.services-list {
 			flex-basis: 50%;
 
-			.functional-list-item {
+			.services-list__item {
 				@include simpleflex;
 				padding-bottom: 34px;
 
-				.functional-list-item-img {
+				.services-list__item-img {
 					justify-content: center;
 					flex-basis: 20%;
 				}
 
-				.functional-list-item-text {
+				.services-list__item-text {
 					display: flex;
 					flex-direction: column;
 					flex-basis: 80%;
 
-					.functional-list-item-header {
+					.services-list__item-header {
 						@include text(16, 0, #323232, mont);
 						margin-bottom: 17px;
 						text-align: left;
 					}
 
-					.functional-list-item-caption {
+					.services-list__item-caption {
 						@include text(14, 0, #848e97, mont);
 						line-height: 1.5;
 						width: 70%;
@@ -294,7 +290,8 @@ $contfz: 10;
 			}
 		}
 
-		.functional-example {
+		.box__editor-img {
+			max-width: 100%;
 			position: absolute;
 			top: 20%;
 			left: 50%;
@@ -307,15 +304,15 @@ $contfz: 10;
 .gallery {
 	padding: 87px 0 80px 0;
 
-	.gallery-container {
-		@extend .container;
+	.wrapper {
+		@extend .main-container;
 
-		.gallery-carousel {
+		.carousel {
 			@include simpleflex;
 			justify-content: space-around;
 			position: relative;
 
-			.gallery-carousel-prev {
+			.carousel__prev {
 				background-color: #ffffff;
 				margin-right: 96px;
 				@include text(20, 700, rgb(164, 164, 164), mont);
@@ -324,31 +321,31 @@ $contfz: 10;
 				cursor: pointer;
 			}
 
-			.gallery-carousel-list {
+			.carousel__list {
 				@include simpleflex;
 				position: relative;
 				width: 900px;
 				height: 300px;
 
-				.gallery-list-item {
+				.carousel__item {
 					position: absolute;
 					opacity: 0;
 					top: 0;
 					transition: All 0.8s;
 
-					.gallery-item-human {
+					.portrait {
 						@include simpleflex;
 						justify-content: center;
 
-						.gallery-item-desc {
+						.portrait__desc {
 							margin-left: 23px;
 
-							.gallery-item-desc-header {
+							.portrait__desc-header {
 								@include text(24, 700, #635c73, mont);
 								text-align: left;
 							}
 
-							.gallery-item-desc-caption {
+							.portrait__desc-caption {
 								@include text(16, 0, #8d81ac, mont);
 								text-align: left;
 							}
@@ -356,20 +353,20 @@ $contfz: 10;
 						}
 					}
 
-					.gallery-list-text {
+					.carousel__text {
 						margin-top: 48px;
 
-						p {
+						.carousel__text-desc {
 							@include text(20, 0, #333333, lato);
 							line-height: 1.5;
 
-							.gallery-list-text-violet {
+							.carousel__text-violet {
 								color: $violet;
 								text-decoration: none;
 							}
 						}
 
-						h5 {
+						.carousel__text-caption {
 							margin-top: 24px;
 							@include text(16, 0, #848e97, mont);
 						}
@@ -379,13 +376,13 @@ $contfz: 10;
 
 				/* JS selector*/
 
-				.active {
+				.carousel__item_active {
 					opacity: 1;
 				}
 
 			}
 
-			.gallery-carousel-next {
+			.carousel__next {
 				background-color: #ffffff;
 				margin-left: 96px;
 				@include text(20, 700, rgb(164, 164, 164), mont);
@@ -395,10 +392,10 @@ $contfz: 10;
 			}
 		}
 
-		.gallery-carousel::after {
+		.carousel::after {
 			content: '';
 			width: 780px;
-			height: 2px;
+			height: 1px;
 			background: #e5e5e5;
 			vertical-align: middle;
  			position: absolute;
@@ -406,57 +403,60 @@ $contfz: 10;
 			bottom: 0;
 		}
 
-		.gallery-social-list {
-			margin: 60px;
+		.social-btns {
+			padding-top: 60px;
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
 
 
-			.gallery-carousel-btn {
+			.social-btns__item {
 				align-items: center;
 				justify-self: center;
 
 
-				.gallery-btns-github {
+				.btn-github {
 					padding: 17px 15px 18px 25px;
 					width: 200px;
 					background-color: rgb(243, 243, 243);
 					border-radius: 10px;
 
-					.gallery-btns-github-shell {
+					.btn-github__shell {
 						text-decoration: none;
 						@include text(21, 0, #000000, mont);
-						span {
+
+						.btn-github__text {
 							margin-left: 36px;
 						}
 					}
 				}
 
-				.gallery-btns-twitter {
+				.btn-twitter {
 					padding: 17px 15px 18px 25px;
 					width: 200px;
 					background-color: rgb(33, 167, 210);
 					border-radius: 10px;
 
-					.gallery-btns-twitter-shell {
+					.btn-twitter__shell {
 						text-decoration: none;
 						@include text(21, 0, #ffffff, mont);
-						span {
+
+						.btn-twitter__text {
 							margin-left: 36px;
 						}
 					}
 				}
 
-				.gallery-btns-facebook {
+				.btn-facebook {
 					padding: 17px 15px 18px 25px;
 					width: 200px;
 					background-color: rgb(56, 88, 153);
 					border-radius: 10px;
 
-					.gallery-btns-facebook-shell {
+					.btn-facebook__shell {
 						text-decoration: none;
 						@include text(21, 0, #ffffff, mont);
-						span {
+
+						.btn-facebook__text {
 							margin-left: 36px;
 						}
 					}
@@ -464,7 +464,7 @@ $contfz: 10;
 			}
 
 
-			.gallery-btns-caption {
+			.social-btns__caption {
 				margin-top: 18px;
 				@include text(14, 0, #848e97, mont);
 			}
