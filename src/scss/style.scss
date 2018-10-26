@@ -21,6 +21,9 @@ $jc: space-between;
 }
 
 @mixin header-section-name {
+  font-weight: 700;
+  line-height: 15px;
+  font-size: $font-size;
   text-align: center;
   text-transform: capitalize;
   font-family: $font-family-header, sans-serif;
@@ -55,47 +58,34 @@ $jc: space-between;
 }
 
 .partners {
+  padding-top: 108px;
   background: $bcg-image;
   @include background-settings;
-  padding-top: 108px;
   text-align: center;
   font-weight: 700;
 }
 
-.partners:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: $bcg-image-base;
-}
-
 .our-partners__header {
   @include header-section-name;
-  font-weight: 700;
-  line-height: 0.3;
-  font-size: $font-size;
 }
 
 .partners-list {
-  padding-bottom: 106px;
+  padding-bottom: 98px;
   display: grid;
-  align-self: center;
-  justify-self: center;
   grid-template-columns: repeat(3, 33%);
   grid-template-rows: 50% 50%;
 }
 
 .partners-item {
-  width: 340px;
   padding-top: 110px;
+  padding-left: 30px;
+  padding-right: 30px;
   align-self: center;
-  justify-self: center;
+  justify-self: flex-end;
 }
 
 .partners-item__logo {
-  padding-bottom: 35px;
+  margin-bottom: 35px;
 }
 
 .upper-logo {
@@ -106,8 +96,15 @@ $jc: space-between;
   height: 30px;
 }
 
+.w-logo {
+  margin-bottom: 22px;
+  height: 64px;
+}
+
 .pixel-logo {
   margin-left: 9px;
+  margin-bottom: 40px;
+  height: 24px;
 }
 
 .partners-item__text {
@@ -115,7 +112,7 @@ $jc: space-between;
   color: $white-color;
   font-size: $font-size/3;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 24px;
 }
 
 .partners-line {
@@ -139,23 +136,30 @@ $jc: space-between;
 }
 
 .subs-section__header {
-  padding-top: 79px;
+  padding-top: 89px;
   @include header-section-name;
-  font-weight: 700;
-  line-height: 0.3;
-  font-size: $font-size;
 }
 
 .pricing-plans {
-  margin-top: 122px;
-  @include flex-configuration(space-around);
+  margin-top: 81px;
+  @include flex-configuration(center);
 }
 
 .pricing-plan {
   width: 257px;
   height: 457px;
+  margin-left: 8px;
+  margin-right: 8px;
   margin-bottom: 100px;
   background-color: rgba(255, 255, 255, 0.11);
+}
+
+.pricing-plan:first-child {
+  margin-left: 0;
+}
+
+.pricing-plan:last-child {
+  margin-right: 0;
 }
 
 .pricing-plan__name {
@@ -180,7 +184,7 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   color: $white-color;
   font-size: 60px;
-  line-height: 0.25;
+  line-height: 15px;
   font-weight: 700;
 }
 
@@ -194,7 +198,7 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   color: rgba(162, 145, 165, 0.8);
   font-size: 14px;
-  line-height: 1.1;
+  line-height: 15px;
 }
 
 .pricing-plan__hr-line {
@@ -209,7 +213,7 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   color: $white-color;
   font-size: 16px;
-  line-height: 0.33;
+  line-height: 4.65px;
 }
 
 .pricing-plan__purchase {
@@ -220,7 +224,7 @@ $jc: space-between;
   padding: 15px 50px;
   @include button-text;
   font-size: 15px;
-  line-height: 1;
+  line-height: 15px;
   border-radius: 40px;
   background-color: rgba(255, 255, 255, 0.15);
 }
@@ -232,13 +236,13 @@ $jc: space-between;
 }
 
 .pricing-about {
-  padding: 0 77px 77px 77px;
+  padding: 0 130px 77px 130px;
 }
 
 .pricing-about__info {
   font-family: $font-family-info, sans-serif;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 23px;
   color: rgba(162, 145, 165, 0.8);
 }
 
@@ -269,29 +273,26 @@ $jc: space-between;
 }
 
 .callback {
-  padding-top: 46px;
-  padding-bottom: 46px;
+  padding-top: 54px;
+  padding-bottom: 57px;
   display: grid;
-  text-align: center;
+  text-align: right;
   align-items: center;
-  grid-template-columns: 25% 75%;
+  grid-template-rows: 100%;
+  grid-template-columns: 26% 74%;
 }
 
 .callback__title-name {
   text-align: left;
-  font-family: $font-family-header, sans-serif;
   font-size: 30px;
+  font-family: $font-family-header, sans-serif;
   font-weight: 700;
-  line-height: 2;
+  line-height: 34px;
   color: #635c73;
 }
 
-.callback__form {
-  display: inline-block;
-}
-
 .callback__form-input {
-  width: 325px;
+  width: 251px;
   height: 42px;
   border-radius: 21px;
   padding-left: 26px;
@@ -310,7 +311,7 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   color: #c8cbcf;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 17px;
 }
 
 .callback__btn {
@@ -323,7 +324,7 @@ $jc: space-between;
   border-radius: 21px;
   background-color: $purple-color;
   font-size: 13px;
-  line-height: 1.31;
+  line-height: 17px;
   border: 1px solid transparent;
 }
 
@@ -341,7 +342,6 @@ $jc: space-between;
   padding-top: 73px;
   padding-bottom: 51px;
   display: grid;
-  align-items: center;
   grid-template-columns: repeat(4, 25%);
 }
 
@@ -370,7 +370,7 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   text-transform: uppercase;
   font-size: 24px;
-  line-height: 0.667;
+  line-height: 16px;
   color: #333333;
 }
 
@@ -395,7 +395,7 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   color: $grey-color;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 21px;
 }
 
 .site-description__title {
@@ -412,7 +412,7 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   color: $grey-color;
   font-size: 14px;
-  line-height: 1.64;
+  line-height: 21px;
 }
 
 .vertical-navigation {
@@ -424,7 +424,7 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   color: $black-color;
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 23px;
 }
 
 .vertical-nav {
@@ -437,7 +437,7 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   color: $purple-color;
   font-size: 15px;
-  line-height: 1.53;
+  line-height: 23px;
   border-bottom: 1px solid transparent;
 }
 
@@ -458,7 +458,7 @@ $jc: space-between;
   color: $black-color;
   font-size: 30px;
   font-weight: 700;
-  line-height: 0.933;
+  line-height: 28px;
 }
 
 .contact-phone__able {
@@ -467,7 +467,7 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   color: $grey-color;
   font-size: 12px;
-  line-height: 2.33;
+  line-height: 28px;
 }
 
 .contact-address__city {
@@ -476,12 +476,12 @@ $jc: space-between;
   font-family: $font-family-header, sans-serif;
   color: $black-color;
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 28px;
 }
 
 /*---------------------------------------------------------------------------------------------------*/
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 992px) {
   .container {
     width: 768px;
   }
@@ -496,13 +496,14 @@ $jc: space-between;
     grid-template-rows: repeat(3, 33%);
   }
 
-  .partners-item {
-    padding-top: 130px;
+  .w-logo {
+    margin-bottom: 25px;
+    height: 64px;
   }
 
-  .w-logo {
-    height: 42px;
-    padding-bottom: 25px;
+  .pixel-logo {
+    margin-bottom: 58px;
+    height: 27px;
   }
 
   .partners-line__hr {
@@ -517,8 +518,6 @@ $jc: space-between;
 
   .pricing-plan {
     margin-bottom: 40px;
-    align-self: center;
-    justify-self: center;
   }
 
   .footer__columns {
@@ -533,14 +532,23 @@ $jc: space-between;
   }
 
   .contact-phone__number {
-    margin-top: 43px;
+    margin-top: 17px;
   }
 
   .callback {
     padding-top: 25px;
     padding-bottom: 32px;
+    text-align: center;
     grid-template-columns: 100%;
     grid-template-rows: 40% 60%;
+  }
+
+  .callback__form-input {
+    width: 310px;
+  }
+
+  .form-input-phone {
+    margin-left: 35px;
   }
 
   .callback__title-name {
@@ -554,11 +562,15 @@ $jc: space-between;
     text-align: center;
   }
 
+  .site-description__title {
+    margin-top: 15px;
+  }
+
 }
 
 /*---------------------------------------------------------------------------------------------------*/
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 713px) {
   .container {
     width: 480px;
   }
@@ -573,8 +585,8 @@ $jc: space-between;
   }
 
   .partners-list {
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(6, 16%);
+    display: flex;
+    flex-direction: column;
   }
 
   .partners-item
@@ -599,8 +611,7 @@ $jc: space-between;
   }
 
   .pricing-plan {
-    margin-top: 7px;
-    margin-bottom: 7px;
+    margin: 7px 0 7px 0;
   }
 
   .pricing-about {
@@ -624,7 +635,7 @@ $jc: space-between;
   .footer__columns {
     padding: 28px 36px 39px 36px;
     grid-template-columns: 100%;
-    grid-template-rows: repeat(4, 25%);
+    grid-template-rows: 25% 25% 30% 20%;
   }
 
   .vertical-navigation {
@@ -643,7 +654,7 @@ $jc: space-between;
 }
 
 /*---------------------------------------------------------------------------------------------------*/
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 400px) {
   .container {
     width: 320px;
   }
@@ -673,6 +684,10 @@ $jc: space-between;
     height: 60px;
   }
 
+  .partners-line {
+    margin-top: 44px;
+  }
+
   .partners-line__hr {
     width: 280px;
   }
@@ -693,6 +708,11 @@ $jc: space-between;
     width: 270px;
   }
 
+  .footer__columns {
+    padding: 40px 0 50px 0;
+    grid-template-rows: 18% 27% 30% 25%;
+  }
+
   .site-description__about {
     width: 260px;
     margin-bottom: 0;
@@ -706,12 +726,15 @@ $jc: space-between;
     margin-left: 0;
   }
 
+  .site-description__text {
+    width: 260px;
+  }
+
   .contact-phone__number {
-    margin-top: 48px;
+    margin-top: 32px;
   }
 
   .site-description__title {
-    margin-top: 80px;
     margin-bottom: 10px;
   }
 
