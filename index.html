@@ -9,36 +9,39 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Montserrat:300,400,500,600,700,800" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/fonts/MyriadPro-Regular.woff">
-    <link rel="stylesheet" href="./build/css/style.css">
+    <link rel="stylesheet" href="./dev/css/style.css">
 </head>
 <body>
 
 	<!-- F O R K I O    H E A D E R -->
 
 	<nav class="section-nav">
-		<div class="container">
+		<div class="container main-container">
 			<a href="#" class="nav-logo">
-				<div class="nav-logo__img"><img src="./build/img/logo.png" alt="forkio-logo"></div>
+				<div class="nav-logo__img"><img src="./dev/img/logo.png" alt="forkio-logo"></div>
 				<h3 class="nav-logo__text">forkio</h3>
 			</a>
-			<div class="nav-menu">
-				<ul class="nav-list">
-					<li class="nav-list__item"><a href="#" class="nav-list__link">Overview</a></li>
-					<li class="nav-list__item"><a href="#" class="nav-list__link">About Fork</a></li>
-					<li class="nav-list__item"><a href="#" class="nav-list__link">Buying Options</a></li>
-					<li class="nav-list__item"><a href="#" class="nav-list__link">Support</a></li>
-				</ul>
-				<a href="#" class="by-btn">Buy Now</a>
+			<a href="#" class="by-btn">Buy Now</a>
+			<div id="navBtn" class="nav-burger">
+				<div class="nav-burger__line nav-burger__line_short"></div>
+				<div class="nav-burger__line"></div>
+				<div class="nav-burger__line"></div>
 			</div>
+			<ul id="navMenu" class="nav-list">
+				<li class="nav-list__item"><a href="#" class="nav-list__link">Overview</a></li>
+				<li class="nav-list__item"><a href="#" class="nav-list__link">About Fork</a></li>
+				<li class="nav-list__item"><a href="#" class="nav-list__link">Buying Options</a></li>
+				<li class="nav-list__item"><a href="#" class="nav-list__link">Support</a></li>
+			</ul>
 		</div>
 	</nav>
 
 	<!-- M A I N   I M G -->
 
 	<header class="section-main">
-		<div class="inner">
+		<div class="inner main-container">
 			<h1 class="inner__header">fork app</h1>
-			<p class="inner__caption">A real gamechanger in the world of web development</p>
+			<h2 class="inner__caption">A real gamechanger in the world of web development</h2>
 			<p class="inner__desc">v. 2.8 for mac and windows</p>
 			<div class="btn-down">
 				<a href="#" class="btn-down__item">Download For Free Now</a>
@@ -50,31 +53,30 @@
 	<!-- E D I T O R -->
 
 	<section class="section-desc">
-		<div class="holder">
+		<div class="holder main-container">
 			<h2 class="holder__header">Revolutionary editor</h2>
-			<p class="holder__desc">Aenean cursus imperdiet nisl id fermentum. Aliqueam pharetra dui laoreet vulputate dignissim.</p>
-			<p class="holder__desc">Sed id metus id quam auctor molestie eget ut augue.</p>
+			<p class="holder__desc">Aenean cursus imperdiet nisl id fermentum. Aliqueam pharetra dui laoreet vulputate dignissim. Sed id metus id quam auctor molestie eget ut augue.</p>
 			<div class="counters">
 				<form class="counters__item" action="">
-					<button class="counters__item-btn">
+					<a href="#" class="counters__item-btn">
 						<i class="far fa-eye"></i>
 						<span class="counters__item-text">Watch</span>
-					</button>
-					<input class="counters__item-display" type="text" placeholder="1.397">
+					</a>
+					<a href="#" class="counters__item-display">7.391</a>
 				</form>
 				<form class="counters__item" action="">
-					<button class="counters__item-btn">
+					<a href="#" class="counters__item-btn">
 						<i class="fas fa-star counters__item-icon"></i>
 						<span class="counters__item-text">Star</span>
-					</button>
-					<input class="counters__item-display" type="text" placeholder="21.038">
+					</a>
+					<a href="#" class="counters__item-display">21.391</a>
 				</form>
 				<form class="counters__item" action="">
-					<button class="counters__item-btn">
+					<a href="#" class="counters__item-btn">
 						<i class="fas fa-code-branch counters__item-icon"></i>
 						<span class="counters__item-text">Fork</span>
-					</button>
-					<input class="counters__item-display" type="text" placeholder="4.391">
+					</a>
+					<a href="#" class="counters__item-display">4.391</a>
 				</form>
 			</div>
 		</div>
@@ -83,14 +85,14 @@
 	<!--  A L L    S E R V I C E S  -->
 
 	<section class="content">
-		<div class="box">
+		<div class="box main-container">
 			<div class="box__header">
 				<h2 class="box__header-text">&lt;Here is what you get&gt;</h2>
 			</div>
 			<ul class="services-list">
 				<li class="services-list__item">
 					<div class="services-list__item-img">
-						<img src="./build/img/icon1.png" alt="icon1">
+						<img src="./dev/img/icon1.png" alt="icon1">
 					</div>
 					<div class="services-list__item-text">
 						<h3 class="services-list__item-header">Creatred to Make The Web Better</h3>
@@ -99,7 +101,7 @@
 				</li>
 				<li class="services-list__item">
 					<div class="services-list__item-img">
-						<img src="./build/img/icon2.png" alt="icon2">
+						<img src="./dev/img/icon2.png" alt="icon2">
 					</div>
 					<div class="services-list__item-text">
 						<h3 class="services-list__item-header">Creatred to Make The Web Better</h3>
@@ -108,7 +110,7 @@
 				</li>
 				<li class="services-list__item">
 					<div class="services-list__item-img">
-						<img src="./build/img/icon3.png" alt="icon3">
+						<img src="./dev/img/icon3.png" alt="icon3">
 					</div>
 					<div class="services-list__item-text">
 						<h3 class="services-list__item-header">Creatred to Make The Web Better</h3>
@@ -117,7 +119,7 @@
 				</li>
 				<li class="services-list__item">
 					<div class="services-list__item-img">
-						<img src="./build/img/icon4.png" alt="icon4">
+						<img src="./dev/img/icon4.png" alt="icon4">
 					</div>
 					<div class="services-list__item-text">
 						<h3 class="services-list__item-header">Creatred to Make The Web Better</h3>
@@ -125,20 +127,20 @@
 					</div>
 				</li>
 			</ul>
-			<img class="box__editor-img" src="./build/img/editor.png" alt="editor">
+			<div class="box__editor"><img class="box__editor-img" src="./dev/img/editor.png" alt="editor"></div>
 		</div>
 	</section>
 
 	<!-------------------------   S L I D E R   ---------------------------->
 
 	<section class="gallery">
-		<div class="wrapper">
+		<div class="wrapper main-container">
 			<div class="carousel">
 				<button id="prevBtn" class="carousel__prev"><i class="fas fa-angle-left"></i></button>
 				<ul id="slider" class="carousel__list">
 					<li class="carousel__item carousel__item_active">
 						<div class="portrait">
-							<div class="portrait__img"><img src="build/img/usirpic.png" alt=""></div>
+							<div class="portrait__img"><img src="dev/img/usirpic.png" alt=""></div>
 							<div class="portrait__desc">
 								<h3 class="portrait__desc-header">Steven Strange</h3>
 								<p class="portrait__desc-caption">@DoctorS</p>
@@ -151,7 +153,7 @@
 					</li>
 					<li class="carousel__item">
 						<div class="portrait">
-							<div class="portrait__img"><img src="build/img/usirpic.png" alt=""></div>
+							<div class="portrait__img"><img src="dev/img/usirpic.png" alt=""></div>
 							<div class="portrait__desc">
 								<h3 class="portrait__desc-header">Steven Hocking</h3>
 								<p class="portrait__desc-caption">@Actor</p>
@@ -164,7 +166,7 @@
 					</li>
 					<li class="carousel__item">
 						<div class="portrait">
-							<div class="portrait__img"><img src="build/img/usirpic.png" alt=""></div>
+							<div class="portrait__img"><img src="dev/img/usirpic.png" alt=""></div>
 							<div class="portrait__desc">
 								<h3 class="portrait__desc-header">Steven King</h3>
 								<p class="portrait__desc-caption">@Poet</p>

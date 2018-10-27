@@ -17,6 +17,22 @@ function slider (slides) {
 		arr[count].classList.add("carousel__item_active");
 	}
 }
+
+function burger(btn, menu, burgerList, menuList, activeLine) {
+	btn.onclick = function() {
+		btn.classList.toggle(burgerList);
+		btn.children[0].classList.toggle(activeLine);
+		if(btn.classList.contains(burgerList)) {
+			menu.classList.add(menuList);
+		} else {
+			menu.classList.remove(menuList);
+		}
+	}
+}
+
+
 let obj = new slider(document.getElementById("slider").children);
 document.getElementById("nextBtn").addEventListener("click", obj.next);
 document.getElementById("prevBtn").addEventListener("click", obj.prev);
+
+let burgerMenu = new burger(document.getElementById("navBtn"), document.getElementById("navMenu"), "nav-burger--active", "nav-list--active", "nav-burger__line-short");
