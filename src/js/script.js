@@ -35,4 +35,4 @@ let obj = new slider(document.getElementById("slider").children);
 document.getElementById("nextBtn").addEventListener("click", obj.next);
 document.getElementById("prevBtn").addEventListener("click", obj.prev);
 
-let burgerMenu = new burger(document.getElementById("navBtn"), document.getElementById("navMenu"), "nav-burger--active", "nav-list--active", "nav-burger__line-short");
+let burgerMenu = new burger(document.getElementById("navBtn"), document.getElementById("navMenu"), "nav-burger--active", "nav-list--active", "nav-burger__line_short");
