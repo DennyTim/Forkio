@@ -8,14 +8,14 @@ var sourcemaps = require('gulp-sourcemaps');
 //var minify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 
-gulp.task('clean-build', function(){
-	return gulp.src('./build', {read: false})
+gulp.task('clean-dev', function(){
+	return gulp.src('./dev', {read: false})
 		.pipe(clean())
 });
 
-gulp.task('img', ['clean-build'], function(){
+gulp.task('img', ['clean-dev'], function(){
     return gulp.src('./src/img/*.png')
-        .pipe(gulp.dest('./build/img'))
+        .pipe(gulp.dest('./dev/img'))
 });
 
 gulp.task('sass', ['img'], function(){
@@ -23,7 +23,7 @@ gulp.task('sass', ['img'], function(){
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./build/css'))
+        .pipe(gulp.dest('./dev/css'))
 });
 
 gulp.task('serve', ['sass'], function (){
