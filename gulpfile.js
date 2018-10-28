@@ -7,7 +7,14 @@ var clean = require('gulp-clean');						//cleaner product directory "dev"
 var cleanCSS = require('gulp-clean-css');				//CSS minifier
 var sourcemaps = require('gulp-sourcemaps');			//SCSS navigation in Chrome inspector
 var imagemin = require('gulp-imagemin');				//Img minify
-var rename = require("gulp-rename");
+var rename = require("gulp-rename");					//rename files after minify
+//var uncss = require('gulp-uncss');						//delete non-used properties (Warning!! Do not working selectors for js)
+var concat = require('gulp-concat');						//concat for js
+//var uglyfly = require('gulp-uglyfly');					//(Warning!! Do not working with ES6)
+let uglify = require('gulp-uglify-es').default;				//minify for js
+const autoprefixer = require('gulp-autoprefixer');
+
+
 
 gulp.task('clean-dev', function(){
 	return gulp.src('./dev', {read: false})
@@ -25,18 +32,34 @@ gulp.task('sass', ['img'], function(){
         .pipe(sass())
         .pipe(sourcemaps.write())
 		.pipe(cleanCSS({compatibility: 'ie8'}))				// minifyCSS after sourcemaps and sass
+//		.pipe(uncss({										//delete non-used properties (Warning!! Do not working selectors for js)
+//            html: ['index.html']
+//        }))
+		.pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
 		.pipe(rename(function (path) {						// function of rename extname for .css
 			path.extname = ".min.css";
 		 }))
         .pipe(gulp.dest('./dev/css'))
 });
 
-gulp.task('serve', ['sass'], function (){
+gulp.task('scripts', ['sass'], function() {
+  return gulp.src('src/js/*.js')
+	.pipe(uglify())
+    .pipe(concat('all.js'))
+    .pipe(gulp.dest('./dev/js'))
+
+});
+
+gulp.task('serve', ['scripts'], function (){
     browserSync.init({
         server: "./"
     });
 
     gulp.watch('src/scss/**/*.scss', ['sass']);
+	gulp.watch('./src/**/*.js', ['scripts']).on('change', browserSync.reload);
     gulp.watch("./index.html").on('change', browserSync.reload);
 });
 
