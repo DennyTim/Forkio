@@ -26,7 +26,12 @@ gulp.task('img', ['clean-dev'], function(){
         .pipe(gulp.dest('./dev/img'))
 });
 
-gulp.task('sass', ['img'], function(){
+gulp.task('buildHtml', ['img'], function() {			//Copy index.html to dir "dev"
+	var buildhtml = gulp.src('./src/*.html')
+		.pipe(gulp.dest('dev'))
+});
+
+gulp.task('sass', ['buildHtml'], function(){
     return gulp.src('./src/scss/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass())
@@ -47,20 +52,20 @@ gulp.task('sass', ['img'], function(){
 
 gulp.task('scripts', ['sass'], function() {
   return gulp.src('src/js/*.js')
-	.pipe(uglify())
-    .pipe(concat('all.js'))
+	.pipe(uglify())											//minify js
+    .pipe(concat('all.js'))									//concat all js files
     .pipe(gulp.dest('./dev/js'))
 
 });
 
 gulp.task('serve', ['scripts'], function (){
     browserSync.init({
-        server: "./"
+        server: "./dev"
     });
 
-    gulp.watch('src/scss/**/*.scss', ['sass']);
+    gulp.watch('src/scss/**/*.scss', ['sass']).on('change', browserSync.reload);
 	gulp.watch('./src/**/*.js', ['scripts']).on('change', browserSync.reload);
-    gulp.watch("./index.html").on('change', browserSync.reload);
+	gulp.watch("./src/index.html").on('change', browserSync.reload);
 });
 
 gulp.task('default', ['serve'], function(){
