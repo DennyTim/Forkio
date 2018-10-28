@@ -49,12 +49,30 @@ $jc: space-between;
   }
 }
 
-/*--------------------------- O U R   P A R T N E R S   S E C T I O N -------------------------------*/
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 480px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+/*--------------------------- O U R   P A R T N E R S   S E C T I O N -------------------------------*/
 
 .partners {
   padding-top: 108px;
@@ -126,10 +144,6 @@ $jc: space-between;
 }
 
 @media screen and (max-width: 992px) {
-  .container {
-    max-width: 768px;
-  }
-
   .our-partners__header {
     font-size: 42px;
   }
@@ -155,10 +169,6 @@ $jc: space-between;
 }
 
 @media screen and (max-width: 768px) {
-  .container {
-    max-width: 480px;
-  }
-
   .partners {
     padding-top: 63px;
   }
@@ -184,10 +194,6 @@ $jc: space-between;
 }
 
 @media screen and (max-width: 400px) {
-  .container {
-    max-width: 100%;
-  }
-
   .our-partners__header {
     font-size: 36px;
   }
