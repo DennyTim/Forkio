@@ -20,9 +20,13 @@
     "browser-sync": "^2.26.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^3.10.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1"
+  },
+  "dependencies": {
+    "gulp-rename": "^1.4.0"
   }
 }
