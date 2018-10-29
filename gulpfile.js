@@ -17,8 +17,8 @@ const autoprefixer = require('gulp-autoprefixer');
 
 
 gulp.task('clean-dev', function(){
-	return gulp.src('./dev', {read: false})
-		.pipe(clean())
+    return gulp.src('./dev', {read: false})
+        .pipe(clean())
 });
 
 gulp.task('img', ['clean-dev'], function(){
@@ -27,8 +27,8 @@ gulp.task('img', ['clean-dev'], function(){
 });
 
 gulp.task('buildHtml', ['img'], function() {			//Copy index.html to dir "dev"
-	var buildhtml = gulp.src('./src/*.html')
-		.pipe(gulp.dest('dev'))
+    var buildhtml = gulp.src('./src/*.html')
+        .pipe(gulp.dest('dev'))
 });
 
 gulp.task('sass', ['buildHtml'], function(){
@@ -36,25 +36,25 @@ gulp.task('sass', ['buildHtml'], function(){
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(sourcemaps.write())
-		.pipe(cleanCSS({compatibility: 'ie8'}))				// minifyCSS after sourcemaps and sass
-//		.pipe(uncss({										//delete non-used properties (Warning!! Do not working selectors for js)
-//            html: ['index.html']
-//        }))
-		.pipe(autoprefixer({
+        .pipe(cleanCSS({compatibility: 'ie8'}))				// minifyCSS after sourcemaps and sass
+        //		.pipe(uncss({										//delete non-used properties (Warning!! Do not working selectors for js)
+        //            html: ['index.html']
+        //        }))
+        .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
-		.pipe(rename(function (path) {						// function of rename extname for .css
-			path.extname = ".min.css";
-		 }))
+        .pipe(rename(function (path) {						// function of rename extname for .css
+            path.extname = ".min.css";
+        }))
         .pipe(gulp.dest('./dev/css'))
 });
 
 gulp.task('scripts', ['sass'], function() {
-  return gulp.src('src/js/*.js')
-	.pipe(uglify())											//minify js
-    .pipe(concat('all.js'))									//concat all js files
-    .pipe(gulp.dest('./dev/js'))
+    return gulp.src('src/js/*.js')
+        .pipe(uglify())											//minify js
+        .pipe(concat('all.js'))									//concat all js files
+        .pipe(gulp.dest('./dev/js'))
 
 });
 
@@ -64,8 +64,8 @@ gulp.task('serve', ['scripts'], function (){
     });
 
     gulp.watch('src/scss/**/*.scss', ['sass']).on('change', browserSync.reload);
-	gulp.watch('./src/**/*.js', ['scripts']).on('change', browserSync.reload);
-	gulp.watch("./src/index.html").on('change', browserSync.reload);
+    gulp.watch('./src/**/*.js', ['scripts']).on('change', browserSync.reload);
+    gulp.watch("./src/index.html").on('change', browserSync.reload);
 });
 
 gulp.task('default', ['serve'], function(){
