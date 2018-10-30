@@ -1783,6 +1783,14 @@ $jc: space-between;
   grid-template-columns: repeat(4, 25%);
 }
 
+.test {
+  &__test {
+    &_r {
+      margin-top: 0;
+    }
+  }
+}
+
 .site-description {
 
   &__logo-link {

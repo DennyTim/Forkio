@@ -14,8 +14,6 @@ var concat = require('gulp-concat');						//concat for js
 let uglify = require('gulp-uglify-es').default;				//minify for js
 const autoprefixer = require('gulp-autoprefixer');
 
-
-
 gulp.task('clean-dev', function(){
     return gulp.src('./dev', {read: false})
         .pipe(clean())
@@ -31,7 +29,15 @@ gulp.task('buildHtml', ['img'], function() {			//Copy index.html to dir "dev"
         .pipe(gulp.dest('dev'))
 });
 
-gulp.task('sass', ['buildHtml'], function(){
+gulp.task('scripts', ['buildHtml'], function() {
+    return gulp.src('src/js/*.js')
+        .pipe(uglify())                          //minify js
+        .pipe(concat('all.js'))                  //concat all js files
+        .pipe(gulp.dest('./dev/js'))
+
+});
+
+gulp.task('sass', ['scripts'], function(){
     return gulp.src('./src/scss/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass())
@@ -50,21 +56,13 @@ gulp.task('sass', ['buildHtml'], function(){
         .pipe(gulp.dest('./dev/css'))
 });
 
-gulp.task('scripts', ['sass'], function() {
-    return gulp.src('src/js/*.js')
-        .pipe(uglify())											//minify js
-        .pipe(concat('all.js'))									//concat all js files
-        .pipe(gulp.dest('./dev/js'))
-
-});
-
-gulp.task('serve', ['scripts'], function (){
+gulp.task('serve', ['sass'], function() {
     browserSync.init({
         server: "./dev"
     });
 
-    gulp.watch('src/scss/**/*.scss', ['sass']).on('change', browserSync.reload);
-    gulp.watch('./src/**/*.js', ['scripts']).on('change', browserSync.reload);
+    gulp.watch('src/scss//*.scss', ['sass']).on('change', browserSync.reload);
+    gulp.watch('./src//*.js', ['scripts']).on('change', browserSync.reload);
     gulp.watch("./src/index.html").on('change', browserSync.reload);
 });
 
