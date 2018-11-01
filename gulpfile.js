@@ -8,9 +8,7 @@ var cleanCSS = require('gulp-clean-css');				//CSS minifier
 var sourcemaps = require('gulp-sourcemaps');			//SCSS navigation in Chrome inspector
 var imagemin = require('gulp-imagemin');				//Img minify
 var rename = require("gulp-rename");					//rename files after minify
-//var uncss = require('gulp-uncss');						//delete non-used properties (Warning!! Do not working selectors for js)
 var concat = require('gulp-concat');						//concat for js
-//var uglyfly = require('gulp-uglyfly');					//(Warning!! Do not working with ES6)
 let uglify = require('gulp-uglify-es').default;				//minify for js
 const autoprefixer = require('gulp-autoprefixer');
 
@@ -31,15 +29,20 @@ gulp.task('buildHtml', ['img'], function() {			//Copy index.html to dir "dev"
         .pipe(gulp.dest('dev'))
 });
 
-gulp.task('sass', ['buildHtml'], function(){
+gulp.task('scripts', ['buildHtml'], function() {
+    return gulp.src('src/js/*.js')
+        .pipe(uglify())											//minify js
+        .pipe(concat('all.js'))									//concat all js files
+        .pipe(gulp.dest('./dev/js'))
+
+});
+
+gulp.task('sass', ['scripts'], function(){
     return gulp.src('./src/scss/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(sourcemaps.write())
         .pipe(cleanCSS({compatibility: 'ie8'}))				// minifyCSS after sourcemaps and sass
-        //		.pipe(uncss({										//delete non-used properties (Warning!! Do not working selectors for js)
-        //            html: ['index.html']
-        //        }))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
@@ -50,15 +53,7 @@ gulp.task('sass', ['buildHtml'], function(){
         .pipe(gulp.dest('./dev/css'))
 });
 
-gulp.task('scripts', ['sass'], function() {
-    return gulp.src('src/js/*.js')
-        .pipe(uglify())											//minify js
-        .pipe(concat('all.js'))									//concat all js files
-        .pipe(gulp.dest('./dev/js'))
-
-});
-
-gulp.task('serve', ['scripts'], function (){
+gulp.task('serve', ['sass'], function (){
     browserSync.init({
         server: "./dev"
     });

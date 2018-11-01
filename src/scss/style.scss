@@ -316,10 +316,10 @@ $grey: #848e97;
 		display: block;
 		order: 1;
 		cursor: pointer;
-	}
 
-	.nav-burger--active {
-		display: block;
+		&--active {
+			display: block;
+		}
 	}
 
 	.nav-burger--active .nav-burger__line:first-child {
@@ -345,56 +345,59 @@ $grey: #848e97;
     	transition: all 1.4s;
     	z-index: 1;
 		background: #2f2f2f;
-	}
 
-	.nav-list--active {
-		top: 100%;
-		left: 0;
-		z-index: 1;
-		transition: all 0.7s;
-	}
+		&--active {
+			top: 100%;
+			left: 0;
+			z-index: 1;
+			transition: all 0.7s;
+		}
 
-	.nav-list__item {
-		margin-right: 0;
-		padding: 15px 0 15px 30px;
-		border-left: 3px solid transparent;
-		border-bottom: 1px solid rgb(65, 65, 65);
-		background-color: rgb(47, 47, 47);
-		justify-content: flex-start;
-		cursor: pointer;
-	}
+		&__item {
+			margin-right: 0;
+			padding: 15px 0 15px 30px;
+			border-left: 3px solid transparent;
+			border-bottom: 1px solid rgb(65, 65, 65);
+			background-color: rgb(47, 47, 47);
+			justify-content: flex-start;
+			cursor: pointer;
+		}
 
-	.nav-list__item:hover {
-		border-left: 3px solid $violet;
-		transition: All 0.6s;
-	}
+		&__item:hover {
+			border-left: 3px solid $violet;
+			transition: All 0.6s;
+		}
 
-	.nav-list__link {
-		@include text(23, 400, $white, mont);
-		text-decoration: none;
-	}
+		&__link {
+			@include text(23, 400, $white, mont);
+			text-decoration: none;
+		}
 
-	.nav-list__item:hover .nav-list__link {
-		@include text(23, 400, $violet, mont);
-		transition: All 0.6s;
+		&__item:hover .nav-list__link {
+			@include text(23, 400, $violet, mont);
+			transition: All 0.6s;
+		}
 	}
 }
 
 @media screen and (max-width: 400px) {
+
 	.nav-logo__text {
 		display: none;
 	}
 
-	.nav-list__item {
-		padding: 16px 0 20px 20px;
-	}
+	.nav-list {
+		&__item {
+			padding: 16px 0 20px 20px;
+		}
 
-	.nav-list__link {
-		@include text(16, 400, $white, mont);
-	}
+		&__link {
+			@include text(16, 400, $white, mont);
+		}
 
-	.nav-list__item:hover .nav-list__link {
-		@include text(16, 400, $violet, mont);
+		&__item:hover .nav-list__link {
+			@include text(16, 400, $violet, mont);
+		}
 	}
 }
 
