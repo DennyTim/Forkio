@@ -6,6 +6,7 @@
   @include background-settings;
   text-align: center;
   font-weight: 700;
+  background-color: rgb(73, 56, 76);
 }
 
 .our-partners__header {
@@ -69,6 +70,16 @@
   }
 }
 
+.partners-about {
+  padding: 0 130px 77px 130px;
+  &__info {
+    font-family: $font-family-info, sans-serif;
+    font-size: 14px;
+    line-height: 23px;
+    color: rgba(162, 145, 165, 0.8);
+  }
+}
+
 @media screen and (max-width: 992px) {
   .our-partners__header {
     font-size: 42px;
@@ -117,6 +128,10 @@
     width: 350px;
     height: 1px;
   }
+
+  .partners-about {
+    padding: 39px 59px 39px 59px;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -135,6 +150,7 @@
     &__img {
       display: flex;
       flex-direction: row;
+      justify-content: center;
     }
   }
 
@@ -148,5 +164,9 @@
     &__hr {
       width: 280px;
     }
+  }
+
+  .partners-about__info {
+    display: none;
   }
 }

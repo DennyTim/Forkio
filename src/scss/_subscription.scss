@@ -1,10 +1,10 @@
 /*---------------------------------------------------------------------------------------------------*/
-
 /*--------------------------- S U B S C R I P T I O N   S E C T I O N -------------------------------*/
 .pricing {
   background: $bcg-image-subs;
   @include background-settings;
   text-align: center;
+  background-color: rgb(73, 56, 76);
 
   &-plans {
     margin-top: 81px;
@@ -12,11 +12,10 @@
   }
 
   &-plan {
-    width: 257px;
-    height: 457px;
     margin-left: 8px;
     margin-right: 8px;
     margin-bottom: 100px;
+    transition: 0.8s;
     background-color: rgba(255, 255, 255, 0.11);
 
     &__name {
@@ -30,6 +29,7 @@
       line-height: 15px;
     }
     &__main-info {
+      padding: 10px;
       display: grid;
       align-items: center;
       height: 360px;
@@ -90,16 +90,6 @@
   &-plan:last-child {
     margin-right: 0;
   }
-
-  &-about {
-    padding: 0 130px 77px 130px;
-    &__info {
-      font-family: $font-family-info, sans-serif;
-      font-size: 14px;
-      line-height: 23px;
-      color: rgba(162, 145, 165, 0.8);
-    }
-  }
 }
 
 .subs-section__header {
@@ -155,12 +145,9 @@
   }
 
   .pricing-plan {
-    margin: 7px 0 7px 0;
+    margin: 7px 0 20px 0;
   }
 
-  .pricing-about {
-    padding: 39px 59px 39px 59px;
-  }
 }
 
 @media screen and (max-width: 400px) {
@@ -171,9 +158,5 @@
   .pricing-plans {
     display: flex;
     flex-direction: column;
-  }
-
-  .pricing-about__info {
-    display: none;
   }
 }
