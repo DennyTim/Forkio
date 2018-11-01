@@ -1,0 +1,179 @@
+/*------------------------------ M A I N   I M G -----------------------------------*/
+
+.section-main {
+  position: relative;
+  background-image: url(../img/main.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.inner {
+  margin: 0 auto;
+  padding-top: 60px;
+
+  &__header {
+    @include text(82, 700, $white, mont);
+    text-transform: capitalize;
+  }
+
+  &__caption {
+    @include text(30, 0, $violet, mont);
+    padding-top: 18px;
+  }
+
+  &__desc {
+    @include text(16, 0, $grey, mont);
+    padding-top: 18px;
+  }
+}
+
+.btn-down {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, calc(100% - 37px));
+
+  &__item {
+    @include shellbtn ($violet, $white);
+    @include text(21, 700, $white, mont);
+    @extend .mont;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 46px;
+    width: 384px;
+    height: 62px;
+  }
+
+  &__item:hover {
+    @include shellbtn ($white, $violet);
+    border: 1px solid $violet;
+    transition: All 0.6s;
+  }
+
+  &__desc {
+    @include text(14, 0, $grey, mont);
+    padding-top: 19px;
+  }
+}
+
+@media screen and (max-width: 993px) {
+
+  .inner {
+    margin: 0 auto;
+    padding-top: 60px;
+
+    &__header {
+      @include text(72, 700, $white, mont);
+      text-transform: capitalize;
+    }
+
+    &__caption {
+      @include text(24, 0, $violet, mont);
+      padding-top: 26px;
+    }
+
+    &__desc {
+      @include text(14, 0, $grey, mont);
+      padding-top: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .section-main {
+    height: 75vh;
+  }
+
+  .inner {
+    margin: 0 auto;
+    padding-top: 60px;
+
+    &__header {
+      @include text(72, 700, $white, mont);
+      text-transform: capitalize;
+    }
+
+    &__caption {
+      @include text(18, 0, $violet, mont);
+      padding-top: 26px;
+    }
+
+    &__desc {
+      @include text(12, 0, $grey, mont);
+      padding-top: 20px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 578px) {
+
+  .inner {
+    margin: 0 auto;
+    padding-top: 60px;
+
+    &__header {
+      @include text(54, 700, $white, mont);
+      text-transform: capitalize;
+    }
+
+    &__caption {
+      @include text(18, 0, $violet, mont);
+      line-height: 1.5;
+      padding-top: 26px;
+    }
+
+    &__desc {
+      @include text(12, 0, $grey, mont);
+      padding-top: 20px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+
+  .section-main {
+    height: 55vh;
+  }
+
+  .inner {
+    margin: 0 auto;
+    padding-top: 30px;
+
+    &__header {
+      @include text(48, 700, $white, mont);
+      padding-top: 26px;
+    }
+
+    &__caption {
+      @include text(16, 0, $violet, mont);
+      line-height: 1.5;
+      padding-top: 26px;
+    }
+
+    &__desc {
+      @include text(10, 0, $grey, mont);
+      padding-top: 20px;
+    }
+  }
+
+  .btn-down {
+    transform: translate(-50%, calc(100% - 27px));
+
+    &__item {
+      @include text(18, 700, $white, mont);
+      width: 284px;
+      height: 45px;
+    }
+
+    &__desc {
+      @include text(12, 0, $grey, mont);
+      padding-top: 10px;
+    }
+  }
+}

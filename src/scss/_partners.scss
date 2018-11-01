@@ -1,0 +1,152 @@
+/*--------------------------- O U R   P A R T N E R S   S E C T I O N -------------------------------*/
+
+.partners {
+  padding-top: 108px;
+  background: $bcg-image;
+  @include background-settings;
+  text-align: center;
+  font-weight: 700;
+}
+
+.our-partners__header {
+  @include header-section-name;
+}
+
+.partners-list {
+  padding-bottom: 98px;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: 50% 50%;
+}
+
+.partners-item {
+  box-sizing: border-box;
+  padding-top: 110px;
+  padding-left: 30px;
+  padding-right: 30px;
+  align-self: center;
+  justify-self: flex-end;
+
+  &__logo {
+    margin-bottom: 35px;
+  }
+  &__text {
+    font-family: $font-family-info, sans-serif;
+    color: $white-color;
+    font-size: $font-size/3;
+    font-style: italic;
+    line-height: 24px;
+  }
+}
+
+.upper-logo {
+  height: 50px;
+}
+
+.bottom-logo {
+  height: 30px;
+}
+
+.w-logo {
+  margin-bottom: 22px;
+  height: 64px;
+}
+
+.pixel-logo {
+  margin-left: 9px;
+  margin-bottom: 40px;
+  height: 24px;
+}
+
+.partners-line {
+  padding-bottom: 1.5px;
+
+  &__hr {
+    border: none;
+    width: 780px;
+    height: 2px;
+    background-color: rgba(199, 199, 199, 0.2);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .our-partners__header {
+    font-size: 42px;
+  }
+
+  .partners-list {
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(3, 33%);
+  }
+
+  .w-logo {
+    margin-bottom: 25px;
+    height: 64px;
+  }
+
+  .pixel-logo {
+    margin-bottom: 58px;
+    height: 27px;
+  }
+
+  .partners-line__hr {
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .partners {
+    padding-top: 63px;
+  }
+
+  .our-partners__header {
+    line-height: 44px;
+  }
+
+  .partners-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .partners-item {
+    width: 340px;
+    padding-top: 65px;
+  }
+
+  .partners-line__hr {
+    width: 350px;
+    height: 1px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .our-partners__header {
+    font-size: 36px;
+  }
+
+  .partners-list {
+    padding-bottom: 0;
+  }
+
+  .partners-item {
+    width: 268px;
+    padding-top: 45px;
+
+    &__img {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .w-logo {
+    height: 60px;
+  }
+
+  .partners-line {
+    margin-top: 44px;
+
+    &__hr {
+      width: 280px;
+    }
+  }
+}

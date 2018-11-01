@@ -1,0 +1,323 @@
+/*-------------------------   S L I D E R   ----------------------------*/
+
+.gallery {
+  padding: 87px 0 80px 0;
+}
+
+.wrapper {
+  margin: 0 auto;
+}
+
+.carousel {
+  @include flex (sa, c);
+  position: relative;
+
+  &__prev {
+    background-color: #ffffff;
+    margin-right: 96px;
+    @include text(20, 700, rgb(164, 164, 164), mont);
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__next {
+    background-color: #ffffff;
+    margin-left: 96px;
+    @include text(20, 700, rgb(164, 164, 164), mont);
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__list {
+    @include flex (c, c);
+    position: relative;
+    width: 900px;
+    height: 300px;
+  }
+
+  &__item {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    transition: All 0.8s;
+
+    /* JS selector*/
+
+    &_active {
+      opacity: 1;
+    }
+  }
+
+  &__text {
+    margin-top: 48px;
+
+    &-desc {
+      @include text(20, 0, #333333, lato);
+      line-height: 1.5;
+    }
+
+    &-violet {
+      color: $violet;
+      text-decoration: none;
+    }
+
+    &-caption {
+      margin-top: 24px;
+      @include text(16, 0, #848e97, mont);
+    }
+  }
+}
+
+.portrait {
+  @include flex (c, c);
+
+  &__desc {
+    margin-left: 23px;
+
+    &-header {
+      @include text(24, 700, #635c73, mont);
+      text-align: left;
+    }
+
+    &-caption {
+      @include text(16, 0, #8d81ac, mont);
+      text-align: left;
+    }
+  }
+}
+
+.carousel::after {
+  content: '';
+  max-width: 780px;
+  height: 1px;
+  background: #e5e5e5;
+  vertical-align: middle;
+  position: absolute;
+  left: 17%;
+  bottom: 0;
+}
+
+.social-btns {
+  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+
+  &__item {
+    padding-right: 40px;
+  }
+
+  &__item:last-child {
+    padding-right: 0px;
+  }
+
+  &__caption {
+    margin-top: 18px;
+    @include text(14, 0, #848e97, mont);
+  }
+}
+
+.btn-github {
+  padding: 17px 15px 18px 25px;
+  width: 200px;
+  @include btn-social (rgb(243, 243, 243), 5px, transparent);
+
+  &__shell {
+    @include text(21, 0, #000000, mont);
+  }
+
+  &__text {
+    margin-left: 36px;
+  }
+}
+
+.btn-twitter {
+  padding: 17px 15px 18px 25px;
+  width: 200px;
+  @include btn-social (rgb(33, 167, 210), 5px, transparent);
+
+  &__shell {
+    @include text(21, 0, #ffffff, mont);
+  }
+
+  &__text {
+    margin-left: 36px;
+  }
+}
+
+.btn-facebook {
+  padding: 17px 15px 18px 25px;
+  width: 200px;
+  @include btn-social (rgb(56, 88, 153), 5px, transparent);
+
+  &__shell {
+    @include text(21, 0, #ffffff, mont);
+  }
+
+  &__text {
+    margin-left: 36px;
+  }
+}
+
+.btn-github:hover {
+  @include btn-social (#000000, 10px, transparent);
+  transition: All 0.6s;
+  .btn-github__shell {
+    @include text(21, 0, #ffffff, mont);
+  }
+}
+
+.btn-twitter:hover {
+  @include btn-social (#ffffff, 10px, rgb(33, 167, 210));
+  transition: All 0.6s;
+  .btn-twitter__shell {
+    @include text(21, 0, rgb(33, 167, 210), mont);
+  }
+}
+
+.btn-facebook:hover {
+  @include btn-social (#ffffff, 10px, rgb(56, 88, 153));
+  transition: All 0.6s;
+  .btn-facebook__shell {
+    @include text(21, 0, rgb(56, 88, 153), mont);
+  }
+}
+
+@media screen and (max-width: 993px) {
+
+  .social-btns {
+    flex-wrap: wrap;
+
+    &__item:nth-child(2) {
+      padding-right: 0px;
+    }
+
+    &__item:last-child {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel {
+
+    &__prev {
+      margin-right: 40px;
+      font-size: 16px;
+    }
+
+    &__next {
+      margin-left: 40px;
+      font-size: 16px;
+    }
+
+    &__list {
+      width: 600px;
+      height: 300px;
+    }
+
+    &__text {
+      margin-top: 24px;
+
+      &-desc {
+        @include text(20, 0, #333333, lato);
+        line-height: 1.5;
+      }
+
+      &-violet {
+        color: $violet;
+        text-decoration: none;
+      }
+
+      &-caption {
+        margin-top: 14px;
+        @include text(16, 0, #848e97, mont);
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 578px) {
+
+  .carousel {
+
+    &__prev {
+      margin-right: 20px;
+    }
+
+    &__next {
+      margin-left: 20px;
+    }
+  }
+
+  .social-btns {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+
+    &__item {
+      margin-top: 20px;
+      padding-right: 0px;
+    }
+  }
+
+  .portrait {
+    @include flex (c, c);
+    flex-direction: column;
+
+    &__desc {
+      margin-left: 0;
+
+      &-header {
+        text-align: center;
+      }
+
+      &-caption {
+        text-align: center;
+      }
+    }
+  }
+
+  .carousel {
+
+    &__text {
+
+      &-desc {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      &-violet {
+        color: $violet;
+        text-decoration: none;
+      }
+
+      &-caption {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .portrait {
+    @include flex (sb, c);
+
+    &__desc {
+      flex-basis: 0%;
+
+      &-header {
+        font-size: 16px;
+        text-align: center;
+      }
+
+      &-caption {
+        font-size: 13px;
+        text-align: center;
+      }
+    }
+  }
+}

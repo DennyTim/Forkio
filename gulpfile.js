@@ -34,7 +34,6 @@ gulp.task('scripts', ['buildHtml'], function() {
         .pipe(uglify())											//minify js
         .pipe(concat('all.js'))									//concat all js files
         .pipe(gulp.dest('./dev/js'))
-
 });
 
 gulp.task('sass', ['scripts'], function(){

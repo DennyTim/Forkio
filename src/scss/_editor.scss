@@ -1,0 +1,154 @@
+/*------------------------------   E D I T O R   ---------------------------------*/
+
+.section-desc {
+  padding: 129px 0 70px 0;
+}
+
+.holder {
+  margin: 0 auto;
+
+  &__header {
+    @include text(54, 700, #635c73, mont);
+    text-transform: uppercase;
+  }
+
+  &__desc {
+    @include text(21, 0, #484848, lato);
+    line-height: 1.5;
+    padding-top: 23px;
+  }
+}
+
+.counters {
+  padding-top: 36px;
+  @include flex (c, c);
+
+  &__item {
+    max-width: 355px;
+    margin-right: 20px;
+    @include flex (c, c);
+    @include text(15, 700, #484848, lato);
+
+    &-btn {
+      border: 1px solid rgb(214, 214, 214);
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      background-color: rgb(242, 242, 242);
+      cursor: pointer;
+      outline: none;
+      text-decoration: none;
+      color: #484848;
+
+      i {
+        padding: 5px 0 4px 8px;
+        font-weight: 700;
+      }
+    }
+
+    &-text {
+      padding: 4px 5px 4px 0;
+      font-weight: 700;
+    }
+
+    &-btn:hover {
+      background-color: rgb(204, 204, 204);
+      transition: All 0.8s;
+    }
+
+    &-display {
+      @include flex(c, c);
+      border: 1px solid rgb(214, 214, 214);
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      width: 60px;
+      height: 23px;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #484848;
+    }
+  }
+
+  &__item:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+
+  .holder {
+
+    &__header {
+      font-size: 42px;
+    }
+
+    &__desc {
+      @include text(21, 0, #484848, lato);
+      padding-top: 23px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .counters {
+    margin-right: 13px;
+
+    &__item {
+      font-size: 12px;
+
+      &-display {
+        width: 45px;
+        height: 21px;
+      }
+    }
+  }
+
+  .holder {
+
+    &__header {
+      font-size: 34px;
+    }
+
+    &__desc {
+      @include text(18, 0, #484848, lato);
+      padding-top: 23px;
+    }
+  }
+}
+
+@media screen and (max-width: 578px) {
+
+  .counters {
+    flex-wrap: nowrap;
+    margin-right: 5px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+
+  .counters {
+    flex-wrap: wrap;
+    margin-right: 15px;
+
+    &__item:nth-child(2) {
+      margin-right: 0px;
+    }
+
+    &__item:last-child {
+      margin-top: 20px;
+    }
+  }
+
+  .holder {
+
+    &__header {
+      font-size: 24px;
+    }
+
+    &__desc {
+      @include text(15, 0, #484848, lato);
+      padding-top: 23px;
+    }
+  }
+}

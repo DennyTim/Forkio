@@ -1,0 +1,224 @@
+/*---------------------------------------------------------------------------------------------------*/
+
+/*--------------------------- F O T T E R   S E C T I O N -------------------------------*/
+.footer__columns {
+  padding-top: 73px;
+  padding-bottom: 51px;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+}
+
+.test {
+  &__test {
+    &_r {
+      margin-top: 0;
+    }
+  }
+}
+
+.site-description {
+
+  &__logo-link {
+    text-decoration: none;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+  &__logo-img {
+    width: 43px;
+    height: 41px;
+    background: url("../img/logo.png");
+  }
+  &__logo-link:hover
+  &__logo-img {
+    background: url("../img/logo_hover.png");
+    transition: All 1s;
+  }
+  &__logo-name {
+    margin-left: 18px;
+    font-family: $font-family-header, sans-serif;
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 16px;
+    color: #333333;
+  }
+  &__logo-link:hover
+  &__logo-name {
+    color: $purple-color;
+    transition: All 1s;
+  }
+  &__logo-name span {
+    color: $purple-color;
+  }
+  &__logo-link:hover
+  &__logo-name span {
+    color: #333333;
+    transition: All 1s;
+  }
+  &__about {
+    width: 320px;
+    margin-top: 36px;
+    margin-bottom: 40px;
+    font-family: $font-family-header, sans-serif;
+    color: $grey-color;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  &__title {
+    text-transform: capitalize;
+    font-family: $font-family-header, sans-serif;
+    color: $black-color;
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+}
+
+.site-description__text,
+.contact-address__city-place {
+  font-family: $font-family-header, sans-serif;
+  color: $grey-color;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.vertical-navigation {
+  margin-left: 86px;
+
+  &__title {
+    text-transform: capitalize;
+    font-family: $font-family-header, sans-serif;
+    color: $black-color;
+    font-size: 16px;
+    line-height: 23px;
+  }
+}
+
+.vertical-nav {
+  margin-top: 22px;
+
+  &__link {
+    text-transform: capitalize;
+    text-decoration: none;
+    font-family: $font-family-header, sans-serif;
+    color: $purple-color;
+    font-size: 15px;
+    line-height: 23px;
+    border-bottom: 1px solid transparent;
+  }
+  &__link:hover {
+    border-bottom: 1px solid $purple-color;
+  }
+}
+
+.site-contacts {
+  width: 221px;
+}
+
+.contact-phone {
+  margin-bottom: 25px;
+
+  &__number {
+    font-family: $font-family-header, sans-serif;
+    color: $black-color;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+  &__able {
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-family: $font-family-header, sans-serif;
+    color: $grey-color;
+    font-size: 12px;
+    line-height: 28px;
+  }
+}
+
+.contact-address__city {
+  margin-bottom: 5px;
+  text-transform: capitalize;
+  font-family: $font-family-header, sans-serif;
+  color: $black-color;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+@media screen and (max-width: 992px) {
+  .footer__columns {
+    padding-left: 38px;
+    padding-right: 38px;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 50% 50%;
+  }
+
+  .vertical-navigation {
+    margin-left: 0;
+  }
+
+  .contact-phone__number {
+    margin-top: 17px;
+  }
+
+  .site-description__title {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer__columns {
+    padding: 28px 36px 39px 36px;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 25% 30% 20%;
+  }
+
+  .vertical-navigation {
+    margin-left: 0;
+  }
+
+  .contact-phone__number {
+    margin-top: 37px;
+  }
+
+  .site-description__title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .footer__columns {
+    padding: 40px 20px 50px 20px;
+    grid-template-rows: 18% 27% 30% 25%;
+  }
+
+  .site-description__about {
+    width: 260px;
+    margin-bottom: 0;
+  }
+
+  .site-description__logo-img {
+    display: none;
+  }
+
+  .site-description__logo-name {
+    margin-left: 0;
+  }
+
+  .site-description__text {
+    width: 260px;
+  }
+
+  .contact-phone__number {
+    margin-top: 32px;
+  }
+
+  .site-description__title {
+    margin-bottom: 10px;
+  }
+
+  .vertical-navigation {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,219 @@
+/*--------------------------- F O R K I O    H E A D E R -------------------------------*/
+
+.section-nav {
+  background: rgb(34, 33, 37);
+
+  .navcontainer {
+    margin: 0 auto;
+    @include flex (sb, c);
+
+    .by-btn {
+      @include shellbtn ($violet, $white);
+      @include text(16, 700, $white, mont);
+      @extend .mont;
+      order: 1;
+      display: inline-block;
+      padding: 12px 35px 11px 35px;
+      border-radius: 46px;
+    }
+
+    .by-btn:hover {
+      @include shellbtn ($white, $violet);
+      border: 1px solid $violet;
+      transition: All 0.6s;
+    }
+  }
+}
+
+.nav-logo {
+  @include flex (fs, c);
+  text-decoration: none;
+
+  &__img {
+    padding: 30px 17px 29px 0px;
+    height: 41px;
+  }
+
+  &__text {
+    @include text(24, 700, $violet, lato);
+    text-transform: uppercase;
+  }
+
+  &__text:hover {
+    color: $white;
+    transition: All 0.6s;
+  }
+}
+
+.nav-burger {
+  display: none;
+  text-align: right;
+
+  &__line {
+    content: '';
+    margin-top: 5px;
+    width: 26px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: all 0.6s;
+  }
+
+  &__line_short {
+    margin-top: 0;
+    margin-left: 4px;
+    width: 21px;
+  }
+}
+
+.nav-list {
+  @include comboflex(fe, c, sa, c);
+  flex: 1 0 0%;
+
+  &__item {
+    margin-right: 48px;
+  }
+
+  &__link {
+    @include text(16, 700, $violet, mont);
+    text-decoration: none;
+  }
+
+  &__link:hover {
+    @include text(16, 700, $white, mont);
+    transition: All 0.6s;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+
+  .navcontainer {
+    flex-wrap: wrap;
+  }
+
+  .nav-logo__img {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    height: 41px;
+  }
+
+  .nav-list {
+    min-width: 100%;
+    padding-top: 5px;
+    padding-bottom: 23px;
+    order: 2;
+    justify-content: center;
+
+    &__item {
+      margin-right: 30px;
+    }
+
+    &__item:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 993px) {
+  .nav-list {
+
+    &__item {
+      margin-right: 20px;
+    }
+
+    &__link {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 578px) {
+
+  .navcontainer {
+    position: relative;
+  }
+
+  .nav-burger {
+    display: block;
+    order: 1;
+    cursor: pointer;
+  }
+
+  .nav-burger--active {
+    display: block;
+  }
+
+  .nav-burger--active .nav-burger__line:first-child {
+    transform: rotate(-45deg) translate(-6px, 5px);
+    transition: all 0.4s;
+  }
+
+  .nav-burger--active .nav-burger__line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-burger--active .nav-burger__line:last-child {
+    transform: rotate(45deg) translate(-5px, -6px);
+    transition: all 0.4s;
+  }
+
+  .nav-list {
+    display: block;
+    position: absolute;
+    padding: 0;
+    top: -1000%;
+    left: 0;
+    transition: all 1.4s;
+    z-index: 1;
+    background: #2f2f2f;
+  }
+
+  .nav-list--active {
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    transition: all 0.7s;
+  }
+
+  .nav-list__item {
+    margin-right: 0;
+    padding: 15px 0 15px 30px;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid rgb(65, 65, 65);
+    background-color: rgb(47, 47, 47);
+    justify-content: flex-start;
+    cursor: pointer;
+  }
+
+  .nav-list__item:hover {
+    border-left: 3px solid $violet;
+    transition: All 0.6s;
+  }
+
+  .nav-list__link {
+    @include text(23, 400, $white, mont);
+    text-decoration: none;
+  }
+
+  .nav-list__item:hover .nav-list__link {
+    @include text(23, 400, $violet, mont);
+    transition: All 0.6s;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .nav-logo__text {
+    display: none;
+  }
+
+  .nav-list__item {
+    padding: 16px 0 20px 20px;
+  }
+
+  .nav-list__link {
+    @include text(16, 400, $white, mont);
+  }
+
+  .nav-list__item:hover .nav-list__link {
+    @include text(16, 400, $violet, mont);
+  }
+}
