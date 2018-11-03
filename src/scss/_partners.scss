@@ -71,7 +71,7 @@
 }
 
 .partners-about {
-  padding: 0 130px 77px 130px;
+  padding: 0 130px 16px 130px;
   &__info {
     font-family: $font-family-info, sans-serif;
     font-size: 14px;
@@ -166,7 +166,7 @@
     }
   }
 
-  .partners-about__info {
+  .partners-about {
     display: none;
   }
 }
