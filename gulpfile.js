@@ -11,32 +11,31 @@ var rename = require("gulp-rename");					//rename files after minify
 var concat = require('gulp-concat');						//concat for js
 let uglify = require('gulp-uglify-es').default;				//minify for js
 const autoprefixer = require('gulp-autoprefixer');
-
-
+var runSequence = require('run-sequence');				//runner
 
 gulp.task('clean-dev', function(){
-    return gulp.src('./dev', {read: false})
+    return gulp.src('./dist', {read: false})
         .pipe(clean())
 });
 
-gulp.task('img', ['clean-dev'], function(){
+gulp.task('img', function(){
     return gulp.src('./src/img/*.png')
-        .pipe(gulp.dest('./dev/img'))
+        .pipe(gulp.dest('./dist/img'))
 });
 
-gulp.task('buildHtml', ['img'], function() {			//Copy index.html to dir "dev"
+gulp.task('buildHtml', function() {			//Copy index.html to dir "dev"
     var buildhtml = gulp.src('./src/*.html')
-        .pipe(gulp.dest('dev'))
+        .pipe(gulp.dest('dist'))
 });
 
-gulp.task('scripts', ['buildHtml'], function() {
+gulp.task('scripts', function() {
     return gulp.src('src/js/*.js')
         .pipe(uglify())											//minify js
         .pipe(concat('all.js'))									//concat all js files
-        .pipe(gulp.dest('./dev/js'))
+        .pipe(gulp.dest('./dist/js'))
 });
 
-gulp.task('sass', ['scripts'], function(){
+gulp.task('sass', function(){
     return gulp.src('./src/scss/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass())
@@ -49,12 +48,12 @@ gulp.task('sass', ['scripts'], function(){
         .pipe(rename(function (path) {						// function of rename extname for .css
             path.extname = ".min.css";
         }))
-        .pipe(gulp.dest('./dev/css'))
+        .pipe(gulp.dest('./dist/css'))
 });
 
-gulp.task('serve', ['sass'], function (){
+gulp.task('serve', function (){
     browserSync.init({
-        server: "./dev"
+        server: "./dist"
     });
 
     gulp.watch('src/scss/**/*.scss', ['sass']).on('change', browserSync.reload);
@@ -62,6 +61,11 @@ gulp.task('serve', ['sass'], function (){
     gulp.watch("./src/index.html").on('change', browserSync.reload);
 });
 
-gulp.task('default', ['serve'], function(){
+
+gulp.task('build', function (cb) {
+    runSequence('clean-dev',['img','buildHtml','scripts','sass','serve'],cb)
+})
+
+gulp.task('default', ['build'], function(){
     console.log('=== ALL DONE ===')
 });

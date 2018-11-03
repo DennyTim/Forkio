@@ -26,11 +26,11 @@
     width: 251px;
     height: 42px;
     border-radius: 21px;
-    padding-left: 26px;
     border: none;
     outline: none;
     font-size: 14px;
     line-height: 22px;
+	text-align: center;
     background-color: $white-color;
   }
   &__form-input::placeholder {
