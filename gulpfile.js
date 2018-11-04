@@ -10,7 +10,7 @@ var imagemin = require('gulp-imagemin');				//Img minify
 var rename = require("gulp-rename");					//rename files after minify
 var concat = require('gulp-concat');						//concat for js
 let uglify = require('gulp-uglify-es').default;				//minify for js
-const autoprefixer = require('gulp-autoprefixer');
+const autoprefixer = require('gulp-autoprefixer');		//cross-browser compatibility
 var runSequence = require('run-sequence');				//runner
 
 gulp.task('clean-dev', function(){
@@ -63,7 +63,7 @@ gulp.task('serve', function (){
 
 
 gulp.task('build', function (cb) {
-    runSequence('clean-dev',['img','buildHtml','scripts','sass','serve'],cb)
+    runSequence('clean-dev',['img','buildHtml','scripts','sass','serve'],cb)		//sequential launch for tasks
 })
 
 gulp.task('default', ['build'], function(){
